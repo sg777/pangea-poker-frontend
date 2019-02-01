@@ -1,6 +1,7 @@
 # Pangea Frontend API Overview
 
 #REQUIREMENTS ubuntu 16.04
+```
 sudo apt-get install apache2
 sudo apt-get install python-pip
 sudo pip install ws4py
@@ -9,7 +10,7 @@ git clone https://github.com/mdashx/pangea-poker-frontend
 cd pangea-poker-frontend/client
 python server.py
 browse to http://localhost/pangea-poker-frontend/client/
-
+```
 ## Where to find more info
 
 The sample servers print JSON strings to the terminal as they are sent. Looking at this output is a good way to get example API calls.

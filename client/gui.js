@@ -349,7 +349,7 @@ pangea.gui.updateOptions = function(){
 }
 
 pangea.gui.changeSeats = function(config){
-  var removeFor2 = [$('#seat-0'), $('#seat-2'), $('#seat-3'), $('#seat-4'), $('#seat-5'), $('#seat-6'), $('#seat-8')]
+  var removeFor2 = [$('#seat-7'), $('#seat-2'), $('#seat-3'), $('#seat-4'), $('#seat-5'), $('#seat-6'), $('#seat-8')]
   var removeFor6 = [$('#seat-3'), $('#seat-4'), $('#seat-5')]
   var configs = {2:removeFor2, 6:removeFor6}
   if (Object.keys(configs).indexOf(String(config)) >= 0){

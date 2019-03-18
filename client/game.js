@@ -13,9 +13,9 @@ pangea.game.myturn = false
 pangea.game.timer = 0
 pangea.seats = []
 pangea.dealer = undefined
-pangea.tableOrder = [0,1,2,3,4,5,6,7,8]
+pangea.tableOrder = [0,1]//[0,1,2,3,4,5,6,7,8]
 pangea.cards = []
-pangea.game.seats = 9 // 2, 6 and 9 configurations available
+pangea.game.seats = 2 // 2, 6 and 9 configurations available
 
 pangea.options = {
   'tablefelt':'black',
@@ -50,13 +50,22 @@ for (var card in pangea.deck){
 }
 
 pangea.getTableOrder = function(){
+  console.log('pangea.getTableOrder: dealer',pangea.dealer)
   pangea.tableOrder = []
+  pangea.dealer=0
   var start = pangea.dealer + 1 // start with position after the dealer
+  console.log('start: ',start)
+  console.log('pangea.seats.length ',pangea.seats.length)
   for (var i=start; i<start + pangea.seats.length; i++){
     var seatnum = i
-    if (seatnum > pangea.seats.length - 1){seatnum = seatnum - pangea.seats.length}
+    if (seatnum > pangea.seats.length - 1){
+        seatnum = seatnum - pangea.seats.length
+    }
     pangea.tableOrder.push(seatnum)
+    console.log('seatnum: ',seatnum)
+    
   }
+
 }
 
 pangea.Player = function(seat, stack){

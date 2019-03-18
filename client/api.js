@@ -8,7 +8,9 @@ pangea.API = new Object()
 pangea.API.seats = function(seatArray){
   for (var i=0; i < seatArray.length; i++){
     var seatIndex = seatArray[i]['seat']
-    pangea.seats[seatIndex].update(seatArray[i])
+    console.log('seatIndex: ',seatIndex)
+    pangea.seats[seatIndex].update(seatArray[i])    
+    console.log(pangea.seats[seatIndex])
   }
   pangea.update()
 }
@@ -26,6 +28,7 @@ pangea.API.player = function(playerArray){
 
 pangea.API.game = function(gameArray){
   for (var param in gameArray){
+    console.log('param ',param)
     if (pangea.game.hasOwnProperty(param)){
       pangea.game[param] = gameArray[param]
     } else {

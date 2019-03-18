@@ -118,6 +118,7 @@ pangea.onMessage = function(message){
   message = JSON.parse(message)
   console.log('Recieved: ', message)
   for (var key in message){
+    console.log('key ',key)
     if (message.hasOwnProperty(key)){
       var handler = handlers[key]
       handler(message[key])

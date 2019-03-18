@@ -21,6 +21,7 @@ pangea.initBoardCards = function(){
 }
 
 pangea.init = function(){
+  console.log('pangea.init called')
   for (var i=0; i<9; i++){
     var newSeat = new pangea.Seat(i)
     pangea.seats.push(newSeat)
@@ -30,6 +31,7 @@ pangea.init = function(){
 }
 
 pangea.update = function(){
+  console.log('pangea.update called')
   pangea.gui.updateSeats()
   for (var seat in pangea.seats){
     pangea.seats[seat].update()
@@ -47,6 +49,7 @@ pangea.update = function(){
   pangea.gui.gametype()
   pangea.gui.playerstack()
   pangea.getTableOrder()
+
   pangea.gui.showboardcards()
   pangea.gui.betSlider()
   pangea.gui.callRaise()
@@ -103,15 +106,26 @@ $('#submitchat').click(function(){
   pangea.sendChat()
 })
 
-pangea.game = function(){
+pangea.gameAPI = function(){
   console.log('game')
   var chatMessage = 'game'
-  pangea.sendMessage({'chat':chatMessage})
+  pangea.sendMessage({'method':chatMessage})
   
 }
 
 $('#game').click(function(){
-  pangea.game()
+  pangea.gameAPI()
+})
+
+pangea.seatsAPI = function(){
+  console.log('seats')
+  var chatMessage = 'seats'
+  pangea.sendMessage({'method':chatMessage})
+  
+}
+
+$('#seats').click(function(){
+  pangea.seatsAPI()
 })
 
 

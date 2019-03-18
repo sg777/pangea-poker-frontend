@@ -5,9 +5,15 @@ var WebSocket = window.WebSocket
 
 pangea.actions = new Object()
 pangea.actions.join = function(seatnum){
+  /*
   var message = {'action':{'join':seatnum}}
   message = JSON.stringify(message)
   pangea.sendMessage(message)
+  */
+  var obj = {}
+  obj['method']='action'
+  obj['join']=seatnum
+  pangea.sendMessage(JSON.stringify(obj))
 }
 
 pangea.boardcards = []
@@ -98,8 +104,12 @@ $('#bet').click(function(){
 pangea.sendChat = function(){
   console.log('pangea.sendChat')
   var chatMessage = $('#chat-input > input').val()
-  pangea.sendMessage({'chat':chatMessage})
+  //pangea.sendMessage({'chat':chatMessage})
   $('#chat-input > input').val('')  
+  var obj={}
+  obj['method']='chat'
+  obj['value']=chatMessage
+  pangea.sendMessage(JSON.stringify(obj))
 }
 
 $('#submitchat').click(function(){
@@ -204,10 +214,6 @@ $('.custom-bet-btn').click(function(){
     $('#bet-amount').val(betAmount)
   }
 })
-function gameKeyPress()
-{
-  console.log('Hello World')
-}
 pangea.init()
 pangea.update()
 

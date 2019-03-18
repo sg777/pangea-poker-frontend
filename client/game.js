@@ -54,16 +54,12 @@ pangea.getTableOrder = function(){
   pangea.tableOrder = []
   pangea.dealer=0
   var start = pangea.dealer + 1 // start with position after the dealer
-  console.log('start: ',start)
-  console.log('pangea.seats.length ',pangea.seats.length)
   for (var i=start; i<start + pangea.seats.length; i++){
     var seatnum = i
     if (seatnum > pangea.seats.length - 1){
         seatnum = seatnum - pangea.seats.length
     }
     pangea.tableOrder.push(seatnum)
-    console.log('seatnum: ',seatnum)
-    
   }
 
 }

@@ -105,8 +105,15 @@ pangea.API.checkAutoControls = function(){
 
 pangea.API.chat = function(messages){
   var chatbox = $('#chatbox')
-  for (var i=0; i< messages.length; i++) {
+  chatbox.append('<br>')
+  chatbox.append(messages)
+  
+}
+
+pangea.API.default = function(messages){
+  var chatbox = $('#chatbox')
+  chatbox.append('<br>')
+ for (var i=0; i< messages.length; i++) {
     chatbox.append(messages[i])
-    chatbox.append('<br>')
-  }
+   }
 }

@@ -93,6 +93,7 @@ $('#bet').click(function(){
 })
 
 pangea.sendChat = function(){
+  console.log('pangea.sendChat')
   var chatMessage = $('#chat-input > input').val()
   pangea.sendMessage({'chat':chatMessage})
   $('#chat-input > input').val('')  
@@ -102,8 +103,20 @@ $('#submitchat').click(function(){
   pangea.sendChat()
 })
 
+pangea.game = function(){
+  console.log('game')
+  var chatMessage = 'game'
+  pangea.sendMessage({'chat':chatMessage})
+  
+}
+
+$('#game').click(function(){
+  pangea.game()
+})
+
+
 pangea.chatKeyPress = function(){
- if(window.event.keyCode==13){
+  if(window.event.keyCode==13){
    pangea.sendChat()
  }
 }
@@ -177,6 +190,11 @@ $('.custom-bet-btn').click(function(){
     $('#bet-amount').val(betAmount)
   }
 })
-
+function gameKeyPress()
+{
+  console.log('Hello World')
+}
 pangea.init()
 pangea.update()
+
+    

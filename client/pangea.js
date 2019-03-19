@@ -112,8 +112,20 @@ pangea.sendChat = function(){
   pangea.sendMessage(JSON.stringify(obj))
 }
 
+pangea.sendChat_9001 = function(){
+  console.log('pangea.sendChat_9001')
+  var chatMessage = $('#chat-input > input').val()
+  //pangea.sendMessage({'chat':chatMessage})
+  $('#chat-input > input').val('')  
+  var obj={}
+  obj['method']='chat'
+  obj['value']=chatMessage
+  pangea.sendMessage_9001(JSON.stringify(obj))
+}
+
 $('#submitchat').click(function(){
   pangea.sendChat()
+  pangea.sendChat_9001()
 })
 
 pangea.gameAPI = function(){
@@ -136,6 +148,43 @@ pangea.seatsAPI = function(){
 
 $('#seats').click(function(){
   pangea.seatsAPI()
+})
+
+
+pangea.player2 = function(){
+  console.log('player2')
+  var chatMessage = 'player'
+  pangea.sendMessage({'method':chatMessage})
+}
+$('#player2').click(function(){
+  pangea.player2()
+})
+
+pangea.player1 = function(){
+  console.log('player1')
+  var chatMessage = 'player'
+  pangea.sendMessage({'method':chatMessage})
+}
+$('#player1').click(function(){
+  pangea.player1()
+})
+
+pangea.bvv = function(){
+  console.log('bvv')
+  var chatMessage = 'bvv'
+  pangea.sendMessage({'method':chatMessage})
+}
+$('#bvv').click(function(){
+  pangea.bvv()
+})
+
+pangea.dcv = function(){
+  console.log('dcv')
+  var chatMessage = 'dcv'
+  pangea.sendMessage({'method':chatMessage})
+}
+$('#dcv').click(function(){
+  pangea.dcv()
 })
 
 

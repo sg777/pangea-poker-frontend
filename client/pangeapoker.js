@@ -136,3 +136,24 @@ pangea.sendMessage = function(message){
 pangea.dealerTray()
 pangea.wsURI = 'ws://localhost:9000'
 pangea.ws = pangea.openWebSocket()
+
+
+
+pangea.sendMessage_9001 = function(message){
+  if (typeof message != 'string'){
+    message = JSON.stringify(message)
+  }
+  pangea.ws_9001.send(message)
+  console.log('Sent: ', message)
+}
+
+pangea.openWebSocket_9001 = function(){
+  var ws  = new WebSocket(pangea.wsURI_9001)
+  ws.onmessage = function(event){
+    pangea.onMessage(event.data)
+  }
+  return ws
+}
+
+pangea.wsURI_9001 = 'ws://localhost:9001'
+pangea.ws_9001 = pangea.openWebSocket_9001()

@@ -13,7 +13,7 @@ pangea.API.seats = function(seatArray){
     console.log(pangea.seats[seatIndex])
   }
   pangea.update()
-}
+}   
 
 pangea.API.player = function(playerArray){
   for (var param in playerArray){

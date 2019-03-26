@@ -137,7 +137,7 @@ pangea.dealerTray()
 pangea.wsURI = 'ws://localhost:9000'
 pangea.ws = pangea.openWebSocket()
 
-
+// For DCV
 
 pangea.sendMessage_9001 = function(message){
   if (typeof message != 'string'){
@@ -157,3 +157,45 @@ pangea.openWebSocket_9001 = function(){
 
 pangea.wsURI_9001 = 'ws://localhost:9001'
 pangea.ws_9001 = pangea.openWebSocket_9001()
+
+//For Player1
+
+pangea.sendMessage_9002 = function(message){
+  if (typeof message != 'string'){
+    message = JSON.stringify(message)
+  }
+  pangea.ws_9002.send(message)
+  console.log('Sent: ', message)
+}
+
+pangea.openWebSocket_9002 = function(){
+  var ws  = new WebSocket(pangea.wsURI_9002)
+  ws.onmessage = function(event){
+    pangea.onMessage(event.data)
+  }
+  return ws
+}
+
+pangea.wsURI_9002 = 'ws://localhost:9002'
+pangea.ws_9002 = pangea.openWebSocket_9002()
+
+// For Player2
+
+pangea.sendMessage_9003 = function(message){
+  if (typeof message != 'string'){
+    message = JSON.stringify(message)
+  }
+  pangea.ws_9003.send(message)
+  console.log('Sent: ', message)
+}
+
+pangea.openWebSocket_9003 = function(){
+  var ws  = new WebSocket(pangea.wsURI_9003)
+  ws.onmessage = function(event){
+    pangea.onMessage(event.data)
+  }
+  return ws
+}
+
+pangea.wsURI_9003 = 'ws://localhost:9003'
+pangea.ws_9003 = pangea.openWebSocket_9003()

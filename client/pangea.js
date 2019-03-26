@@ -154,7 +154,8 @@ $('#seats').click(function(){
 pangea.player2 = function(){
   console.log('player2')
   var chatMessage = 'player'
-  pangea.sendMessage({'method':chatMessage})
+  //pangea.sendMessage({'method':chatMessage})
+  pangea.sendMessage_9003({'method':chatMessage})
 }
 $('#player2').click(function(){
   pangea.player2()
@@ -163,7 +164,8 @@ $('#player2').click(function(){
 pangea.player1 = function(){
   console.log('player1')
   var chatMessage = 'player'
-  pangea.sendMessage({'method':chatMessage})
+  //pangea.sendMessage({'method':chatMessage})
+  pangea.sendMessage_9002({'method':chatMessage})
 }
 $('#player1').click(function(){
   pangea.player1()
@@ -172,7 +174,8 @@ $('#player1').click(function(){
 pangea.bvv = function(){
   console.log('bvv')
   var chatMessage = 'bvv'
-  pangea.sendMessage({'method':chatMessage})
+  //pangea.sendMessage({'method':chatMessage})
+  pangea.sendMessage_9001({'method':chatMessage})
 }
 $('#bvv').click(function(){
   pangea.bvv()
@@ -181,6 +184,7 @@ $('#bvv').click(function(){
 pangea.dcv = function(){
   console.log('dcv')
   var chatMessage = 'dcv'
+  //pangea.sendMessage({'method':chatMessage})
   pangea.sendMessage({'method':chatMessage})
 }
 $('#dcv').click(function(){

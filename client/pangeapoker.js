@@ -113,14 +113,23 @@ pangea.openWebSocket = function(){
   return ws
 }
 
+pangea.processDefault = function(message){
+  message=JSON.parse(message)
+  console.log(message)
+  for(var key in message)
+    console.log(key,':',message[key])
+}
+
 pangea.onMessage = function(message){
-  var handlers = {'action':pangea.API.action, 'game':pangea.API.game, 'seats':pangea.API.seats, 'player':pangea.API.player, 'deal':pangea.API.deal,'chat':pangea.API.chat,'default':pangea.API.default}
+  var handlers = {'action':pangea.API.action, 'game':pangea.API.game, 'seats':pangea.API.seats, 
+  'player':pangea.API.player, 'deal':pangea.API.deal,'chat':pangea.API.chat,'default':pangea.API.default,
+  'bvv':pangea.API.bvv, 'dcv':pangea.API.dcv}
   message = JSON.parse(message)
   console.log('Recieved: ', message)
   for (var key in message){
-    if (message.hasOwnProperty(key)){
-      var handler = handlers[key]
-      handler(message[key])
+    if (handlers.hasOwnProperty(key)){
+        var handler = handlers[key]
+        handler(message[key])  
     }
   }
 }
@@ -151,6 +160,7 @@ pangea.openWebSocket_9001 = function(){
   var ws  = new WebSocket(pangea.wsURI_9001)
   ws.onmessage = function(event){
     pangea.onMessage(event.data)
+    pangea.sendMessage(event.data)
   }
   return ws
 }
@@ -172,6 +182,7 @@ pangea.openWebSocket_9002 = function(){
   var ws  = new WebSocket(pangea.wsURI_9002)
   ws.onmessage = function(event){
     pangea.onMessage(event.data)
+    pangea.sendMessage(event.data)
   }
   return ws
 }
@@ -193,6 +204,7 @@ pangea.openWebSocket_9003 = function(){
   var ws  = new WebSocket(pangea.wsURI_9003)
   ws.onmessage = function(event){
     pangea.onMessage(event.data)
+    pangea.sendMessage(event.data)
   }
   return ws
 }

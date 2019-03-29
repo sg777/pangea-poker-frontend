@@ -16,6 +16,7 @@ pangea.API.seats = function(seatArray){
 }   
 
 pangea.API.player = function(playerArray){
+  /*
   for (var param in playerArray){
     if (pangea.player.hasOwnProperty(param)){
       pangea.player[param] = playerArray[param]
@@ -24,6 +25,9 @@ pangea.API.player = function(playerArray){
     }
   }
   pangea.update()
+  */
+  var player_json={"method":"from_player","player":messages}
+  pangea.sendMessage(player_json)
 }
 
 pangea.API.game = function(gameArray){
@@ -116,4 +120,16 @@ pangea.API.default = function(messages){
  for (var i=0; i< messages.length; i++) {
     chatbox.append(messages[i])
    }
+}
+
+pangea.API.dcv = function(messages){
+ var dcv_json={"method":"from_dcv","dcv":messages}
+ pangea.sendMessage_9001(dcv_json)
+ pangea.sendMessage_9002(dcv_json)
+ pangea.sendMessage_9003(dcv_json) 
+}
+
+pangea.API.bvv = function(messages){
+ var bvv_json={"method":"from_bvv","bvv":messages}
+ pangea.sendMessage(bvv_json)
 }

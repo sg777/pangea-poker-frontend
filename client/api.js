@@ -124,9 +124,9 @@ pangea.API.default = function(messages){
 
 pangea.API.dcv = function(messages){
  var dcv_json={"method":"from_dcv","dcv":messages}
- pangea.sendMessage_9001(dcv_json)
- pangea.sendMessage_9002(dcv_json)
- pangea.sendMessage_9003(dcv_json) 
+ pangea.sendMessage_bvv(dcv_json)
+ pangea.sendMessage_player1(dcv_json)
+ pangea.sendMessage_player2(dcv_json) 
 }
 
 pangea.API.bvv = function(messages){

@@ -121,9 +121,10 @@ pangea.processDefault = function(message){
 }
 
 pangea.onMessage = function(message){
+  /*
   var handlers = {'action':pangea.API.action, 'game':pangea.API.game, 'seats':pangea.API.seats, 
   'player':pangea.API.player, 'deal':pangea.API.deal,'chat':pangea.API.chat,'default':pangea.API.default,
-  'bvv':pangea.API.bvv, 'dcv':pangea.API.dcv}
+  'bvv':pangea.API.bvv, 'dcv':pangea.API.dcv, 'method':pangea.API.method}
   message = JSON.parse(message)
   console.log('Recieved: ', message)
   for (var key in message){
@@ -132,7 +133,26 @@ pangea.onMessage = function(message){
         handler(message[key])  
     }
   }
+  */
+  console.log(message)
 }
+
+pangea.onMessage_bvv = function(message){
+  console.log(message)
+  pangea.sendMessage(message)
+}
+
+pangea.onMessage_player1 = function(message){
+  console.log(message)
+  pangea.sendMessage(message)
+}
+
+pangea.onMessage_player2 = function(message){
+  console.log(message)
+  pangea.sendMessage(message)
+}
+
+
 
 pangea.sendMessage = function(message){
   if (typeof message != 'string'){
@@ -148,66 +168,66 @@ pangea.ws = pangea.openWebSocket()
 
 // For DCV
 
-pangea.sendMessage_9001 = function(message){
+pangea.sendMessage_bvv = function(message){
   if (typeof message != 'string'){
     message = JSON.stringify(message)
   }
-  pangea.ws_9001.send(message)
+  pangea.ws_bvv.send(message)
   console.log('Sent: ', message)
 }
 
-pangea.openWebSocket_9001 = function(){
-  var ws  = new WebSocket(pangea.wsURI_9001)
+pangea.openWebSocket_bvv = function(){
+  var ws  = new WebSocket(pangea.wsURI_bvv)
   ws.onmessage = function(event){
-    pangea.onMessage(event.data)
-    pangea.sendMessage(event.data)
+    pangea.onMessage_bvv(event.data)
+    pangea.sendMessage_bvv(event.data)
   }
   return ws
 }
 
-pangea.wsURI_9001 = 'ws://localhost:9001'
-pangea.ws_9001 = pangea.openWebSocket_9001()
+pangea.wsURI_bvv = 'ws://localhost:9001'
+pangea.ws_bvv = pangea.openWebSocket_bvv()
 
 //For Player1
 
-pangea.sendMessage_9002 = function(message){
+pangea.sendMessage_player1 = function(message){
   if (typeof message != 'string'){
     message = JSON.stringify(message)
   }
-  pangea.ws_9002.send(message)
+  pangea.ws_player1.send(message)
   console.log('Sent: ', message)
 }
 
-pangea.openWebSocket_9002 = function(){
-  var ws  = new WebSocket(pangea.wsURI_9002)
+pangea.openWebSocket_player1 = function(){
+  var ws  = new WebSocket(pangea.wsURI_player1)
   ws.onmessage = function(event){
-    pangea.onMessage(event.data)
-    pangea.sendMessage(event.data)
+    pangea.onMessage_player1(event.data)
+    pangea.sendMessage_player1(event.data)
   }
   return ws
 }
 
-pangea.wsURI_9002 = 'ws://localhost:9002'
-pangea.ws_9002 = pangea.openWebSocket_9002()
+pangea.wsURI_player1 = 'ws://localhost:9002'
+pangea.ws_player1 = pangea.openWebSocket_player1()
 
 // For Player2
 
-pangea.sendMessage_9003 = function(message){
+pangea.sendMessage_player2 = function(message){
   if (typeof message != 'string'){
     message = JSON.stringify(message)
   }
-  pangea.ws_9003.send(message)
+  pangea.ws_player2.send(message)
   console.log('Sent: ', message)
 }
 
-pangea.openWebSocket_9003 = function(){
-  var ws  = new WebSocket(pangea.wsURI_9003)
+pangea.openWebSocket_player2 = function(){
+  var ws  = new WebSocket(pangea.wsURI_player2)
   ws.onmessage = function(event){
-    pangea.onMessage(event.data)
-    pangea.sendMessage(event.data)
+    pangea.onMessage_player2(event.data)
+    pangea.sendMessage_player2(event.data)
   }
   return ws
 }
 
-pangea.wsURI_9003 = 'ws://localhost:9003'
-pangea.ws_9003 = pangea.openWebSocket_9003()
+pangea.wsURI_player2 = 'ws://localhost:9003'
+pangea.ws_player2 = pangea.openWebSocket_player2()

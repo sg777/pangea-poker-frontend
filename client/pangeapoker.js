@@ -180,7 +180,6 @@ pangea.openWebSocket_bvv = function(){
   var ws  = new WebSocket(pangea.wsURI_bvv)
   ws.onmessage = function(event){
     pangea.onMessage_bvv(event.data)
-    pangea.sendMessage_bvv(event.data)
   }
   return ws
 }
@@ -202,7 +201,6 @@ pangea.openWebSocket_player1 = function(){
   var ws  = new WebSocket(pangea.wsURI_player1)
   ws.onmessage = function(event){
     pangea.onMessage_player1(event.data)
-    pangea.sendMessage_player1(event.data)
   }
   return ws
 }
@@ -224,7 +222,6 @@ pangea.openWebSocket_player2 = function(){
   var ws  = new WebSocket(pangea.wsURI_player2)
   ws.onmessage = function(event){
     pangea.onMessage_player2(event.data)
-    pangea.sendMessage_player2(event.data)
   }
   return ws
 }

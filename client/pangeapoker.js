@@ -135,20 +135,25 @@ pangea.onMessage = function(message){
   }
   */
   console.log(message)
+  message=JSON.parse(message)
+  if(message["method"] =="bvv_join")
+  {
+    pangea.API.chat("BVV is Joined")
+  }
 }
 
 pangea.onMessage_bvv = function(message){
-  console.log(message)
+  console.log('Received: bvv: ',message)
   pangea.sendMessage(message)
 }
 
 pangea.onMessage_player1 = function(message){
-  console.log(message)
+  console.log('Received: player1: ',message)
   pangea.sendMessage(message)
 }
 
 pangea.onMessage_player2 = function(message){
-  console.log(message)
+  console.log('Received: player2: ',message)
   pangea.sendMessage(message)
 }
 

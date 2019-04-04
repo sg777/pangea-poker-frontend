@@ -140,6 +140,18 @@ pangea.onMessage = function(message){
   {
     pangea.API.chat("BVV is Joined")
   }
+  else if(message["method"] =="check_bvv_ready")
+  {
+     pangea.sendMessage_bvv(message); 
+  }
+  else if(message["method"] =="init")
+  {
+     message["playerID"]=0
+     pangea.sendMessage_player1(message)
+     message["playerID"]=1
+     pangea.sendMessage_player2(message) 
+  }
+
 }
 
 pangea.onMessage_bvv = function(message){

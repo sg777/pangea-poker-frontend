@@ -153,8 +153,7 @@ $('#seats').click(function(){
 
 pangea.player2 = function(){
   console.log('player2')
-  var chatMessage = 'player'
-  pangea.sendMessage_player2({'method':chatMessage})
+  pangea.sendMessage_player2({'method':'player_join'})
 }
 $('#player2').click(function(){
   pangea.player2()
@@ -162,8 +161,7 @@ $('#player2').click(function(){
 
 pangea.player1 = function(){
   console.log('player1')
-  var chatMessage = 'player'
-  pangea.sendMessage_player1({'method':chatMessage})
+  pangea.sendMessage_player1({'method':'player_join'})
 }
 $('#player1').click(function(){
   pangea.player1()

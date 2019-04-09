@@ -142,9 +142,9 @@ pangea.onMessage = function(message){
   }
   else if(message["method"] =="join_res")
   {
-    message["playerID"]=0
+    message["gui_playerID"]=0
     pangea.sendMessage_player1(message)
-    message["playerID"]=1
+    message["gui_playerID"]=1
     pangea.sendMessage_player2(message)
     
   }
@@ -154,9 +154,9 @@ pangea.onMessage = function(message){
   }
   else if(message["method"] =="init")
   {
-     message["playerID"]=0
+     message["gui_playerID"]=0
      pangea.sendMessage_player1(message)
-     message["playerID"]=1
+     message["gui_playerID"]=1
      pangea.sendMessage_player2(message) 
   }
   else if(message["method"] =="init_d")
@@ -187,8 +187,20 @@ pangea.onMessage = function(message){
     pangea.sendMessage_player2(message) 
     */
   }
-  
-
+  else if(message["method"] == "turn")
+  {
+    console.log("Received the turn info")
+    if(message["playerid"] == 0)
+    {
+      message["gui_playerID"]=0
+      pangea.sendMessage_player1(message)
+    }
+    else
+    {
+      message["gui_playerID"]=1  
+      pangea.sendMessage_player2(message)
+    }
+  }
 }
 
 pangea.onMessage_bvv = function(message){
@@ -214,26 +226,61 @@ pangea.onMessage_bvv = function(message){
 pangea.onMessage_player1 = function(message){
   message=JSON.parse(message)
   console.log('Received: player1: ',message)
-  
-  if(message["method"] == "dealer_ready")
+  if(message["method"] == "requestShare")
   {
-    console.log("Player Ready")
+    if(message["toPlayer"] == 1)
+    {
+        message["gui_playerID"]=1
+        pangea.sendMessage_player2(message)
+    }
   }
+  else if(message["method"] == "share_info")
+  {
+    if(message["toPlayer"] == 1)
+    {
+        message["gui_playerID"]=1
+        pangea.sendMessage_player2(message)
+    }
+
+  }
+  else if(message["method"] == "playerCardInfo")
+  {
+    console.log("playerCardInfo")
+  }  
   else
-    pangea.sendMessage(message)
+  {
+     pangea.sendMessage(message)
+  } 
 }
 
 pangea.onMessage_player2 = function(message){
   message=JSON.parse(message)
   console.log('Received: player2: ',message)
-  /*
-  if(message["method"] == "player_ready")
+  if(message["method"] == "requestShare")
   {
-    console.log("Player Ready")
+    if(message["toPlayer"] == 0)
+    {
+      message["gui_playerID"]=0
+      pangea.sendMessage_player1(message)
+    }
   }
+  else if(message["method"] == "share_info")
+  {
+    if(message["toPlayer"] == 0)
+    {
+        message["gui_playerID"]=0
+        pangea.sendMessage_player1(message)
+    }
+
+  }
+  else if(message["method"] == "playerCardInfo")
+  {
+    console.log("playerCardInfo")
+  }  
   else
-    */
-    pangea.sendMessage(message)
+  {
+     pangea.sendMessage(message)
+  }
 }
 
 

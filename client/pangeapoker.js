@@ -140,6 +140,14 @@ pangea.onMessage = function(message){
   {
     pangea.API.chat("BVV is Joined")
   }
+  else if(message["method"] =="join_res")
+  {
+    message["playerID"]=0
+    pangea.sendMessage_player1(message)
+    message["playerID"]=1
+    pangea.sendMessage_player2(message)
+    
+  }
   else if(message["method"] =="check_bvv_ready")
   {
      pangea.sendMessage_bvv(message); 
@@ -151,22 +159,81 @@ pangea.onMessage = function(message){
      message["playerID"]=1
      pangea.sendMessage_player2(message) 
   }
+  else if(message["method"] =="init_d")
+  {
+      message["method"]="init_d_bvv"    
+      pangea.sendMessage_bvv(message)
+    /*
+     message["method"]="init_d_player"  
+     message["playerID"]=0
+     
+     pangea.sendMessage_player1(message)
+     message["playerID"]=1
+     pangea.sendMessage_player2(message) 
+     */
+    
+  }
+  else if(message["method"] == "dealer")
+  {
+    console.log("We got the dealer")
+
+    message["method"]="dealer_bvv"    
+    pangea.sendMessage_bvv(message)
+    
+    message["method"]="dealer_player"  
+    pangea.sendMessage_player1(message)
+    /*
+    message["playerID"]=1
+    pangea.sendMessage_player2(message) 
+    */
+  }
+  
 
 }
 
 pangea.onMessage_bvv = function(message){
+  message=JSON.parse(message)
   console.log('Received: bvv: ',message)
-  pangea.sendMessage(message)
+  console.log(message["method"])
+   if(message["method"] =="init_b")
+   {
+    /*
+    sg777: In the back end this message is forwarded to both the players, this should be changed in the future
+    */
+    message["method"]="init_b_player"
+    pangea.sendMessage_player1(message)  
+    /*
+    message["playerID"]=1
+    pangea.sendMessage_player2(message)   
+    */   
+   } 
+   else
+      pangea.sendMessage(message)
 }
 
 pangea.onMessage_player1 = function(message){
+  message=JSON.parse(message)
   console.log('Received: player1: ',message)
-  pangea.sendMessage(message)
+  
+  if(message["method"] == "dealer_ready")
+  {
+    console.log("Player Ready")
+  }
+  else
+    pangea.sendMessage(message)
 }
 
 pangea.onMessage_player2 = function(message){
+  message=JSON.parse(message)
   console.log('Received: player2: ',message)
-  pangea.sendMessage(message)
+  /*
+  if(message["method"] == "player_ready")
+  {
+    console.log("Player Ready")
+  }
+  else
+    */
+    pangea.sendMessage(message)
 }
 
 

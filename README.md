@@ -1,3 +1,11 @@
+# Pangea Frontend
+
+The corresponding back end for this front end repo is here: https://github.com/sg777/bet. ```rest_dev``` is the branch in whcih REST API calls are handled for this front end GUI.
+
+The back end repo does further have dependency on setting up chips and lightning nodes, the detailed instruction are available in the bet repo in setting up the node.
+
+
+
 # Pangea Frontend API Overview
 
 #REQUIREMENTS ubuntu 16.04

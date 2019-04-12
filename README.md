@@ -4,7 +4,21 @@ The corresponding back end for this front end repo is here: https://github.com/s
 
 The back end repo does further have dependency on setting up chips and lightning nodes, the detailed instruction are available in the bet repo in setting up the node.
 
-
+# Installation
+## Back end
+```
+$ cd ~
+$ cd bet/privatebet
+$ ./bet dcv ip_address_of_this_node
+```
+## Front end
+```
+$ cd ~
+$ sudo apt-get install apache2
+$ cd /var/www/html
+$ git clone https://github.com/sg777/pangea-poker-frontend.git
+browse to browse to http://localhost/pangea-poker-frontend/client/
+```
 
 # Pangea Frontend API Overview
 

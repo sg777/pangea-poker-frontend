@@ -19,7 +19,26 @@ $ cd /var/www/html
 $ git clone https://github.com/sg777/pangea-poker-frontend.git
 browse to browse to http://localhost/pangea-poker-frontend/client/
 ```
+# How to play
 
+When you browse to http://localhost/pangea-poker-frontend/client/, you see the page as below(for a time being run this in debug mode so that you can see the exchange of messages in console logs)
+![Home image](home.png)
+
+```
+Then
+1. click on dcv, you can see in the console logs the DCV public key
+2. click the bvv, it initializes the BVV in the back end
+3. click the player1, it initializes the first player parameters
+4. click on player2, it initializes the second player parameters
+
+With this the deck distribution happens, and you can see in the back end how the messgaes get communicated and put the betting amount in the back end
+
+```
+# what needs to be done
+1. When the page loads instead of clicking I want loading of events DCV, BVV one after the other
+2. I want the fold,raise,call,allin options are available somewhere in the gui so that I can bet from the front end.
+
+# For time being ignore what's below................................
 # Pangea Frontend API Overview
 
 #REQUIREMENTS ubuntu 16.04

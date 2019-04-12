@@ -22,7 +22,7 @@ browse to browse to http://localhost/pangea-poker-frontend/client/
 # How to play
 
 When you browse to http://localhost/pangea-poker-frontend/client/, you see the page as below(for a time being run this in debug mode so that you can see the exchange of messages in console logs)
-![Home image](home.png)
+![Home image](./images/home.png)
 
 ```
 Then
@@ -34,7 +34,7 @@ Then
 With this the deck distribution happens, and you can see in the back end how the messgaes get communicated and put the betting amount in the back end
 
 ```
-# what needs to be done
+# what needs to be done(I need help from interested gui devs on this)
 1. When the page loads instead of clicking I want loading of events DCV, BVV one after the other
 2. I want the fold,raise,call,allin options are available somewhere in the gui so that I can bet from the front end.
 

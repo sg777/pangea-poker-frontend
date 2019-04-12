@@ -134,7 +134,7 @@ pangea.onMessage = function(message){
     }
   }
   */
-  console.log(message)
+  console.log('Received: DCV: ',message)
   message=JSON.parse(message)
   if(message["method"] =="bvv_join")
   {
@@ -161,6 +161,11 @@ pangea.onMessage = function(message){
   }
   else if(message["method"] =="init_d")
   {
+      /*
+      Actually this message should be forwarded to players along BVV, since in the backe end the same buffer is getting used and
+      which causing the sync issues, what I'm doing is at this moment I'm just forwading this message to BVV frome from UI and BVV 
+      in the backend forwards this message to Players
+      */
       message["method"]="init_d_bvv"    
       pangea.sendMessage_bvv(message)
     /*
@@ -190,6 +195,7 @@ pangea.onMessage = function(message){
   else if(message["method"] == "turn")
   {
     console.log("Received the turn info")
+    
     if(message["playerid"] == 0)
     {
       message["gui_playerID"]=0
@@ -200,6 +206,30 @@ pangea.onMessage = function(message){
       message["gui_playerID"]=1  
       pangea.sendMessage_player2(message)
     }
+
+  }
+  else if(message["method"] == "betting")
+  {
+    if((message["action"] == "small_blind")||(message["action"] == "big_blind")||(message["action"] == "round_betting"))
+    {
+      console.log(message["action"])
+      if(message["playerid"] == 0)
+      {
+         message["gui_playerID"]=0
+         pangea.sendMessage_player1(message) 
+      }
+      else if(message["playerid"] == 1)
+      {
+        message["gui_playerID"]=1
+        pangea.sendMessage_player2(message)
+      }
+    }
+    else if((message["action"] =="check")||(message["action"] =="call")||(message["action"] =="raise")||(message["action"] =="fold")||(message["action"] =="allin"))
+    {
+      console.log(message["action"])  
+    }
+    
+
   }
 }
 
@@ -246,6 +276,12 @@ pangea.onMessage_player1 = function(message){
   else if(message["method"] == "playerCardInfo")
   {
     console.log("playerCardInfo")
+    pangea.sendMessage(message)
+  }
+  else if((message["action"] =="check")||(message["action"] =="call")||(message["action"] =="raise")||(message["action"] =="fold")||(message["action"] =="allin"))
+  {
+    message["gui_playerID"]=0;
+    pangea.sendMessage(message)
   }  
   else
   {
@@ -276,7 +312,13 @@ pangea.onMessage_player2 = function(message){
   else if(message["method"] == "playerCardInfo")
   {
     console.log("playerCardInfo")
-  }  
+    pangea.sendMessage(message)
+  }
+  else if((message["action"] =="check")||(message["action"] =="call")||(message["action"] =="raise")||(message["action"] =="fold")||(message["action"] =="allin"))
+  {
+    message["gui_playerID"]=1;
+    pangea.sendMessage(message)
+  }    
   else
   {
      pangea.sendMessage(message)

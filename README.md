@@ -38,6 +38,10 @@ With this the deck distribution happens, and you can see in the back end how the
 1. When the page loads instead of clicking I want loading of events DCV, BVV one after the other
 2. I want the fold,raise,call,allin options are available somewhere in the gui so that I can bet from the front end.
 
+# Bounties
+Since this project is lacking speed in gui development, I decided to give away all the CHIPS(around 45,000) which I have for the GUI development. Anyone interested in this please reach out to me in the CHIPS discord channel.
+
+
 # For time being ignore what's below................................
 # Pangea Frontend API Overview
 

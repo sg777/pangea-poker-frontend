@@ -41,6 +41,13 @@ With this the deck distribution happens, and you can see in the back end how the
 # Bounties
 Since this project is lacking speed in gui development, I decided to give away all the CHIPS(around 45,000) which I have for the GUI development. Anyone interested in this please reach out to me in the CHIPS discord channel.
 
+```
+If you wish to contribute to the development of this project, you can help here:
+
+KMD: RDLweQcw9kPjfnHeT1k5JrqxifheE2vtsw
+BTC: 3Esv2CEvJjs1DZ8TRC8Y5aU4mgpmsnbqqY
+```
+
 
 # For time being ignore what's below................................
 # Pangea Frontend API Overview

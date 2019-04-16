@@ -170,10 +170,10 @@ pangea.onMessage = function(message){
       pangea.sendMessage_bvv(message)
     
      message["method"]="init_d_player"  
-     message["playerID"]=0
-     
+     message["gui_playerID"]=0
      pangea.sendMessage_player1(message)
-     message["playerID"]=1
+
+	  message["gui_playerID"]=1
      pangea.sendMessage_player2(message) 
      
     

@@ -153,7 +153,12 @@ $('#seats').click(function(){
 
 pangea.player2 = function(){
   console.log('player2')
-  pangea.sendMessage_player2({'method':'player_join'})
+  	var message=""
+  	message=JSON.parse(message)
+  	message["method"]="player_join"
+  	message["gui_playerID"]=1
+  	pangea.sendMessage_player2(message)
+  //pangea.sendMessage_player2({'method':'player_join'})
 }
 $('#player2').click(function(){
   pangea.player2()
@@ -161,7 +166,12 @@ $('#player2').click(function(){
 
 pangea.player1 = function(){
   console.log('player1')
-  pangea.sendMessage_player1({'method':'player_join'})
+  	var message=""
+  	message=JSON.parse(message)
+  	message["method"]="player_join"
+  	message["gui_playerID"]=0
+	pangea.sendMessage_player1(message)
+  //pangea.sendMessage_player1({'method':'player_join'})
 }
 $('#player1').click(function(){
   pangea.player1()

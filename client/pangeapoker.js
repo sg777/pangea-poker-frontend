@@ -357,7 +357,7 @@ pangea.openWebSocket_bvv = function(){
   return ws
 }
 
-pangea.wsURI_bvv = 'ws://159.69.23.30:9001'
+pangea.wsURI_bvv = 'ws://159.69.23.31:9001'
 pangea.ws_bvv = pangea.openWebSocket_bvv()
 
 //For Player1
@@ -378,7 +378,7 @@ pangea.openWebSocket_player1 = function(){
   return ws
 }
 
-pangea.wsURI_player1 = 'ws://159.69.23.30:9002'
+pangea.wsURI_player1 = 'ws://159.69.23.28:9002'
 pangea.ws_player1 = pangea.openWebSocket_player1()
 
 // For Player2
@@ -399,5 +399,5 @@ pangea.openWebSocket_player2 = function(){
   return ws
 }
 
-pangea.wsURI_player2 = 'ws://159.69.23.30:9003'
+pangea.wsURI_player2 = 'ws://159.69.23.29:9003'
 pangea.ws_player2 = pangea.openWebSocket_player2()

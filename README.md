@@ -63,6 +63,12 @@ cd pangea-poker-frontend/client
 python server.py
 browse to http://localhost/pangea-poker-frontend/client/
 ```
+## Running the gui
+```
+browse to http://localhost/pangea-poker-frontend/client/
+For example in order to run the front end on the specific gui instead of localhost in the file pangeapoker.js change
+pangea.wsURI = 'ws://localhost:9000' to pangea.wsURI = 'ws://<your_ip_address>:9000'
+```
 ## Where to find more info
 
 The sample servers print JSON strings to the terminal as they are sent. Looking at this output is a good way to get example API calls.

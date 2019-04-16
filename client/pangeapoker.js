@@ -188,7 +188,7 @@ pangea.onMessage = function(message){
     message["method"]="dealer_player"  
     message["gui_playerID"]=0
     pangea.sendMessage_player1(message)
-    message["gui_playerID"]=0
+    message["gui_playerID"]=1
     pangea.sendMessage_player2(message)
     /*
     message["playerID"]=1

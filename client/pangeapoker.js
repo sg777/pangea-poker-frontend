@@ -243,11 +243,12 @@ pangea.onMessage_bvv = function(message){
     sg777: In the back end this message is forwarded to both the players, this should be changed in the future
     */
     message["method"]="init_b_player"
-    pangea.sendMessage_player1(message)  
-    /*
-    message["playerID"]=1
+	message["gui_playerID"]=0
+	pangea.sendMessage_player1(message)  
+    
+    message["gui_playerID"]=1
     pangea.sendMessage_player2(message)   
-    */   
+       
    } 
    else
       pangea.sendMessage(message)

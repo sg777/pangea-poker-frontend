@@ -227,6 +227,24 @@ pangea.onMessage = function(message){
         pangea.sendMessage_player2(message)
       }
     }
+	else if(message["action"]=="small_blind_bet")
+	{
+		message["action"]=="small_blind_bet_player"
+		message["gui_playerID"]=0
+		pangea.sendMessage_player1(message)
+
+		message["gui_playerID"]=1
+		pangea.sendMessage_player2(message)
+	}
+	else if(message["action"]=="big_blind_bet")
+	{
+		message["action"]=="big_blind_bet_player"
+		message["gui_playerID"]=0
+		pangea.sendMessage_player1(message)
+
+		message["gui_playerID"]=1
+		pangea.sendMessage_player2(message)
+	}
     else if((message["action"] =="check")||(message["action"] =="call")||(message["action"] =="raise")||(message["action"] =="fold")||(message["action"] =="allin"))
     {
       console.log(message["action"])  

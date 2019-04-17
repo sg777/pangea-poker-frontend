@@ -229,7 +229,8 @@ pangea.onMessage = function(message){
     }
 	else if(message["action"]=="small_blind_bet")
 	{
-		message["action"]=="small_blind_bet_player"
+		console.log("small_blind_bet")
+		message["action"]="small_blind_bet_player"
 		message["gui_playerID"]=0
 		pangea.sendMessage_player1(message)
 
@@ -238,7 +239,8 @@ pangea.onMessage = function(message){
 	}
 	else if(message["action"]=="big_blind_bet")
 	{
-		message["action"]=="big_blind_bet_player"
+		console.log("big_blind_bet")
+		message["action"]="big_blind_bet_player"
 		message["gui_playerID"]=0
 		pangea.sendMessage_player1(message)
 

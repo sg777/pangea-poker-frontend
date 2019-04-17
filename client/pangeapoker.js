@@ -249,7 +249,18 @@ pangea.onMessage = function(message){
 	}
     else if((message["action"] =="check")||(message["action"] =="call")||(message["action"] =="raise")||(message["action"] =="fold")||(message["action"] =="allin"))
     {
-      console.log(message["action"])  
+        message["action"]=message["action"]+"_player"
+		if(message["gui_playerID"] == 0)
+		{
+			message["gui_playerID"]=1
+			pangea.sendMessage_player2(message)	
+		}
+		else if(message["gui_playerID"] == 1)
+		{
+			message["gui_playerID"]=0
+			pangea.sendMessage_player1(message)	
+		}
+		
     }
     
 

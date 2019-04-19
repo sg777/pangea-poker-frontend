@@ -262,8 +262,21 @@ pangea.onMessage = function(message){
 		}
 		
     }
-    
-
+  }
+  else if(message["method"] == "invoice")
+  {
+  	if(message["playerID"] == 0)
+	{
+		message["playerID"]=0
+		message["gui_playerID"]=0
+		pangea.sendMessage_player1(message);	
+	}
+	else if(message["playerID"] == 1)
+	{
+		message["playerID"]=1
+		message["gui_playerID"]=1
+		pangea.sendMessage_player2(message);	
+	}
   }
 }
 

@@ -138,10 +138,12 @@ pangea.onMessage = function(message){
 	message=JSON.parse(message)
 	if(message["method"] == "game")
 	{
+		delete message["method"]
 		pangea.API.game(message)
 	}
 	else if(message["method"] == "seats")
 	{
+		delete message["method"]
 		pangea.API.seats(message)
 	}
 	else if(message["method"] =="bvv_join")

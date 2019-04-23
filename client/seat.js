@@ -87,7 +87,6 @@ pangea.Seat.prototype.updateCSS = function(){
 }
 
 pangea.Seat.prototype.sitdown = function(){
-	console.log('pangea.Seat.prototype.sitdown')
   $(this.select.seat).unbind('click')
   if (pangea.player.sitting == 0){
     $(this.select.seat).click(function(){

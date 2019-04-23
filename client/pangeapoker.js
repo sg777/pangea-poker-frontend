@@ -136,7 +136,11 @@ pangea.onMessage = function(message){
 	*/
 	console.log('Received: DCV: ',message)
 	message=JSON.parse(message)
-	if(message["method"] == "seats")
+	if(message["method"] == "game")
+	{
+		pangea.API.game(message)
+	}
+	else if(message["method"] == "seats")
 	{
 		pangea.API.seats(message)
 	}

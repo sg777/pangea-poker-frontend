@@ -121,164 +121,168 @@ pangea.processDefault = function(message){
 }
 
 pangea.onMessage = function(message){
-  /*
-  var handlers = {'action':pangea.API.action, 'game':pangea.API.game, 'seats':pangea.API.seats, 
-  'player':pangea.API.player, 'deal':pangea.API.deal,'chat':pangea.API.chat,'default':pangea.API.default,
-  'bvv':pangea.API.bvv, 'dcv':pangea.API.dcv, 'method':pangea.API.method}
-  message = JSON.parse(message)
-  console.log('Recieved: ', message)
-  for (var key in message){
-    if (handlers.hasOwnProperty(key)){
-        var handler = handlers[key]
-        handler(message[key])  
-    }
-  }
-  */
-  console.log('Received: DCV: ',message)
-  message=JSON.parse(message)
-  if(message["method"] =="bvv_join")
-  {
-    pangea.API.chat("BVV is Joined")
-  }
-  else if(message["method"] =="join_res")
-  {
-    message["gui_playerID"]=0
-    pangea.sendMessage_player1(message)
-    message["gui_playerID"]=1
-    pangea.sendMessage_player2(message)
-    
-  }
-  else if(message["method"] =="check_bvv_ready")
-  {
-     pangea.sendMessage_bvv(message); 
-  }
-  else if(message["method"] =="init")
-  {
-     message["gui_playerID"]=0
-     pangea.sendMessage_player1(message)
-     message["gui_playerID"]=1
-     pangea.sendMessage_player2(message) 
-  }
-  else if(message["method"] =="init_d")
-  {
-      /*
-      Actually this message should be forwarded to players along BVV, since in the backe end the same buffer is getting used and
-      which causing the sync issues, what I'm doing is at this moment I'm just forwading this message to BVV frome from UI and BVV 
-      in the backend forwards this message to Players
-      */
-      message["method"]="init_d_bvv"    
-      pangea.sendMessage_bvv(message)
-    
-     message["method"]="init_d_player"  
-     message["gui_playerID"]=0
-     pangea.sendMessage_player1(message)
+	/*
+	var handlers = {'action':pangea.API.action, 'game':pangea.API.game, 'seats':pangea.API.seats, 
+	'player':pangea.API.player, 'deal':pangea.API.deal,'chat':pangea.API.chat,'default':pangea.API.default,
+	'bvv':pangea.API.bvv, 'dcv':pangea.API.dcv, 'method':pangea.API.method}
+	message = JSON.parse(message)
+	console.log('Recieved: ', message)
+	for (var key in message){
+	if (handlers.hasOwnProperty(key)){
+	    var handler = handlers[key]
+	    handler(message[key])  
+	}
+	}
+	*/
+	console.log('Received: DCV: ',message)
+	message=JSON.parse(message)
+	if(message["method"] == "seats")
+	{
+		pangea.API.seats(message)
+	}
+	else if(message["method"] =="bvv_join")
+	{
+		pangea.API.chat("BVV is Joined")
+	}
+	else if(message["method"] =="join_res")
+	{
+		message["gui_playerID"]=0
+		pangea.sendMessage_player1(message)
+		message["gui_playerID"]=1
+		pangea.sendMessage_player2(message)
+
+	}
+	else if(message["method"] =="check_bvv_ready")
+	{
+		 pangea.sendMessage_bvv(message); 
+	}
+	else if(message["method"] =="init")
+	{
+		 message["gui_playerID"]=0
+		 pangea.sendMessage_player1(message)
+		 message["gui_playerID"]=1
+		 pangea.sendMessage_player2(message) 
+	}
+	else if(message["method"] =="init_d")
+	{
+	  /*
+	  Actually this message should be forwarded to players along BVV, since in the backe end the same buffer is getting used and
+	  which causing the sync issues, what I'm doing is at this moment I'm just forwading this message to BVV frome from UI and BVV 
+	  in the backend forwards this message to Players
+	  */
+	  message["method"]="init_d_bvv"    
+	  pangea.sendMessage_bvv(message)
+
+	 message["method"]="init_d_player"  
+	 message["gui_playerID"]=0
+	 pangea.sendMessage_player1(message)
 
 	  message["gui_playerID"]=1
-     pangea.sendMessage_player2(message) 
-     
-    
-  }
-  else if(message["method"] == "dealer")
-  {
-    console.log("We got the dealer")
+	 pangea.sendMessage_player2(message) 
+	 
 
-    message["method"]="dealer_bvv"    
-    pangea.sendMessage_bvv(message)
-    
-    message["method"]="dealer_player"  
-    message["gui_playerID"]=0
-    pangea.sendMessage_player1(message)
-    message["gui_playerID"]=1
-    pangea.sendMessage_player2(message)
-    /*
-    message["playerID"]=1
-    pangea.sendMessage_player2(message) 
-    */
-  }
-  else if(message["method"] == "turn")
-  {
-    console.log("Received the turn info")
-    
-    if(message["playerid"] == 0)
-    {
-      message["gui_playerID"]=0
-      pangea.sendMessage_player1(message)
-    }
-    else
-    {
-      message["gui_playerID"]=1  
-      pangea.sendMessage_player2(message)
-    }
-
-  }
-  else if(message["method"] == "betting")
-  {
-    if((message["action"] == "small_blind")||(message["action"] == "big_blind")||(message["action"] == "round_betting"))
-    {
-      console.log(message["action"])
-      if(message["playerid"] == 0)
-      {
-         message["gui_playerID"]=0
-         pangea.sendMessage_player1(message) 
-      }
-      else if(message["playerid"] == 1)
-      {
-        message["gui_playerID"]=1
-        pangea.sendMessage_player2(message)
-      }
-    }
-	else if(message["action"]=="small_blind_bet")
+	}
+	else if(message["method"] == "dealer")
 	{
-		console.log("small_blind_bet")
-		message["action"]="small_blind_bet_player"
+		console.log("We got the dealer")
+
+		message["method"]="dealer_bvv"    
+		pangea.sendMessage_bvv(message)
+
+		message["method"]="dealer_player"  
 		message["gui_playerID"]=0
 		pangea.sendMessage_player1(message)
-
 		message["gui_playerID"]=1
 		pangea.sendMessage_player2(message)
+		/*
+		message["playerID"]=1
+		pangea.sendMessage_player2(message) 
+		*/
 	}
-	else if(message["action"]=="big_blind_bet")
+	else if(message["method"] == "turn")
 	{
-		console.log("big_blind_bet")
-		message["action"]="big_blind_bet_player"
-		message["gui_playerID"]=0
-		pangea.sendMessage_player1(message)
+		console.log("Received the turn info")
 
-		message["gui_playerID"]=1
-		pangea.sendMessage_player2(message)
-	}
-    else if((message["action"] =="check")||(message["action"] =="call")||(message["action"] =="raise")||(message["action"] =="fold")||(message["action"] =="allin"))
-    {
-        message["action"]=message["action"]+"_player"
-		if(message["gui_playerID"] == 0)
+		if(message["playerid"] == 0)
 		{
-			message["gui_playerID"]=1
-			pangea.sendMessage_player2(message)	
+		  message["gui_playerID"]=0
+		  pangea.sendMessage_player1(message)
 		}
-		else if(message["gui_playerID"] == 1)
+		else
+		{
+		  message["gui_playerID"]=1  
+		  pangea.sendMessage_player2(message)
+		}
+
+	}
+	else if(message["method"] == "betting")
+	{
+		if((message["action"] == "small_blind")||(message["action"] == "big_blind")||(message["action"] == "round_betting"))
+		{
+		  console.log(message["action"])
+		  if(message["playerid"] == 0)
+		  {
+		     message["gui_playerID"]=0
+		     pangea.sendMessage_player1(message) 
+		  }
+		  else if(message["playerid"] == 1)
+		  {
+		    message["gui_playerID"]=1
+		    pangea.sendMessage_player2(message)
+		  }
+		}
+		else if(message["action"]=="small_blind_bet")
+		{
+			console.log("small_blind_bet")
+			message["action"]="small_blind_bet_player"
+			message["gui_playerID"]=0
+			pangea.sendMessage_player1(message)
+
+			message["gui_playerID"]=1
+			pangea.sendMessage_player2(message)
+		}
+		else if(message["action"]=="big_blind_bet")
+		{
+			console.log("big_blind_bet")
+			message["action"]="big_blind_bet_player"
+			message["gui_playerID"]=0
+			pangea.sendMessage_player1(message)
+
+			message["gui_playerID"]=1
+			pangea.sendMessage_player2(message)
+		}
+		else if((message["action"] =="check")||(message["action"] =="call")||(message["action"] =="raise")||(message["action"] =="fold")||(message["action"] =="allin"))
+		{
+		    message["action"]=message["action"]+"_player"
+			if(message["gui_playerID"] == 0)
+			{
+				message["gui_playerID"]=1
+				pangea.sendMessage_player2(message)	
+			}
+			else if(message["gui_playerID"] == 1)
+			{
+				message["gui_playerID"]=0
+				pangea.sendMessage_player1(message)	
+			}
+			
+		}
+	}
+	else if(message["method"] == "invoice")
+	{
+		pangea.game.pot[0]+=message["betAmount"]
+		pangea.gui.updatePotAmount()
+		if(message["playerID"] == 0)
 		{
 			message["gui_playerID"]=0
-			pangea.sendMessage_player1(message)	
+			pangea.sendMessage_player1(message);	
 		}
-		
-    }
-  }
-  else if(message["method"] == "invoice")
-  {
-  	pangea.game.pot[0]+=message["betAmount"]
-  	pangea.gui.updatePotAmount()
-  	if(message["playerID"] == 0)
-	{
-		message["gui_playerID"]=0
-		pangea.sendMessage_player1(message);	
+		else if(message["playerID"] == 1)
+		{
+			message["gui_playerID"]=1
+			pangea.sendMessage_player2(message);	
+		}
 	}
-	else if(message["playerID"] == 1)
-	{
-		message["gui_playerID"]=1
-		pangea.sendMessage_player2(message);	
-	}
-  }
-  else if(message["method"] == "winningInvoiceRequest")
+	else if(message["method"] == "winningInvoiceRequest")
 	{
 		if(message["playerID"] == 0)
 		{

@@ -10,10 +10,23 @@ pangea.actions.join = function(seatnum){
   message = JSON.stringify(message)
   pangea.sendMessage(message)
   */
+  /*
   var obj = {}
   obj['method']='action'
   obj['join']=seatnum
   pangea.sendMessage(JSON.stringify(obj))
+  */	
+  	if(seatnum == 0)
+  	{
+  		var message={"method":"player_join", "gui_playerID":seatnum}
+  		pangea.sendMessage_player1(message)
+  	}
+	else if(seatnum == 1)
+	{
+		var message={"method":"player_join", "gui_playerID":seatnum}
+		pangea.sendMessage_player2(message)
+	}
+
 }
 
 pangea.boardcards = []

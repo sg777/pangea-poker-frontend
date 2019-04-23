@@ -31,7 +31,8 @@ pangea.API.player = function(playerArray){
 }
 
 pangea.API.game = function(gameArray){
-  for (var param in gameArray){
+
+	for (var param in gameArray){
     console.log('param ',param)
     if (pangea.game.hasOwnProperty(param)){
       pangea.game[param] = gameArray[param]

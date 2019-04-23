@@ -265,6 +265,8 @@ pangea.onMessage = function(message){
   }
   else if(message["method"] == "invoice")
   {
+  	pangea.game.pot[0]+=message["betAmount"]
+  	pangea.gui.updatePotAmount()
   	if(message["playerID"] == 0)
 	{
 		message["gui_playerID"]=0

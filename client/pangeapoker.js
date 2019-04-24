@@ -369,7 +369,7 @@ pangea.onMessage_player2 = function(message){
 
   if(message["method"] == "deal")
   {
-  	pangea.API.deal(message["deal"])
+  	//pangea.API.deal(message["deal"])
   }
   else if(message["method"] == "requestShare")
   {

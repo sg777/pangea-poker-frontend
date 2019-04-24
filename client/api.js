@@ -44,6 +44,7 @@ pangea.API.game = function(gameArray){
 }
 
 pangea.API.deal = function(message){
+	console.log('pangea.API.deal')
   function dealer(new_dealer){
     pangea.dealer = new_dealer
     pangea.update()
@@ -75,7 +76,10 @@ pangea.API.deal = function(message){
       handler(message[key])
     }
   }
-  if (is_holecards){pangea.gui.dealcards()}
+  if (is_holecards){
+	console.log('pangea.gui.dealcards')
+	pangea.gui.dealcards()
+	}
   pangea.update()
 }
 

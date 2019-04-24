@@ -325,9 +325,10 @@ pangea.onMessage_bvv = function(message){
 pangea.onMessage_player1 = function(message){
   message=JSON.parse(message)
   console.log('Received: player1: ',message)
-   if(message["method"] == "deal")
+
+  if(message["method"] == "deal")
   {
-  	console.log(message["deal"])
+   	console.log(message["deal"])
   	pangea.API.deal(message["deal"])
   }
   else if(message["method"] == "requestShare")

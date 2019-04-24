@@ -327,8 +327,8 @@ pangea.onMessage_player1 = function(message){
   console.log('Received: player1: ',message)
    if(message["method"] == "deal")
   {
-  	//console.log(message["deal"])
-  	//pangea.API.deal(message["deal"])
+  	console.log(message["deal"])
+  	pangea.API.deal(message["deal"])
   }
   else if(message["method"] == "requestShare")
   {
@@ -369,7 +369,7 @@ pangea.onMessage_player2 = function(message){
 
   if(message["method"] == "deal")
   {
-  	//pangea.API.deal(message["deal"])
+  	pangea.API.deal(message["deal"])
   }
   else if(message["method"] == "requestShare")
   {

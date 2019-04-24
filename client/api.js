@@ -45,17 +45,16 @@ pangea.API.game = function(gameArray){
 
 pangea.API.deal = function(message){
 	console.log('pangea.API.deal')
-  function dealer(new_dealer){
+    function dealer(new_dealer){
     pangea.dealer = new_dealer
     pangea.update()
   }
   function holecards(new_cards){
     for (var seat in pangea.seats){
       // pangea.seats[seat].playercards = null
-      //pangea.player.holecards = new_cards  sg777
+      pangea.player.holecards = new_cards
       console.log('inside holecards')
       if (seat == pangea.player.seat){
-	  	pangea.player.holecards = new_cards
         pangea.seats[seat].playercards = pangea.player.holecards
       }
     }

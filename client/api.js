@@ -51,8 +51,9 @@ pangea.API.deal = function(message){
   function holecards(new_cards){
     for (var seat in pangea.seats){
       // pangea.seats[seat].playercards = null
-      pangea.player.holecards = new_cards
+      //pangea.player.holecards = new_cards  sg777
       if (seat == pangea.player.seat){
+	  	pangea.player.holecards = new_cards
         pangea.seats[seat].playercards = pangea.player.holecards
       }
     }

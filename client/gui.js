@@ -93,7 +93,7 @@ pangea.gui.dealcards = function(){
       if (seat.player == 1){
         seat.faceup1.image = pangea.deck[pangea.player.holecards[0]]
         dealTheseCards.push(seat.faceup1)
-      } else {dealTheseCards.push(seat.faceup1)} //sg777
+      } else {dealTheseCards.push(seat.facedown1)}
     }
   }
   for (var j=0; j < pangea.seats.length; j++){
@@ -102,7 +102,7 @@ pangea.gui.dealcards = function(){
       if (seat.player == 1){
         seat.faceup2.image = pangea.deck[pangea.player.holecards[1]]
         dealTheseCards.push(seat.faceup2)
-      } else {dealTheseCards.push(seat.faceup1)} //sg777
+      } else {dealTheseCards.push(seat.facedown2)}
     }
   }
   for (var k=0; k < dealTheseCards.length; k++){

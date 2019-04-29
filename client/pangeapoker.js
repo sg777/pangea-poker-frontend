@@ -375,6 +375,9 @@ pangea.onMessage_player2 = function(message){
   if(message["method"] == "deal")
   {
   	pangea.player.seat=1
+	message["deal"]["holecards"][0]="2C"
+	message["deal"]["holecards"][1]="3S"
+	
   	pangea.API.deal(message["deal"])
   }
   else if(message["method"] == "requestShare")

@@ -329,6 +329,8 @@ pangea.onMessage_player1 = function(message){
   if(message["method"] == "deal")
   {
    	console.log(message["deal"])
+	message["deal"]["holecards"][0]="AH"
+	message["deal"]["holecards"][1]="AH"
   	pangea.API.deal(message["deal"])
  
   }

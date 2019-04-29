@@ -40,17 +40,6 @@ pangea.initBoardCards = function(){
 }
 
 
-pangea.init_seats = function(no_of_seats){
-  console.log('pangea.init_seats called')
-  for (var i=0; i<no_of_seats; i++){
-    var newSeat = new pangea.Seat(i)
-    pangea.seats.push(newSeat)
-    newSeat.update()
-  }
-  pangea.initBoardCards()
-}
-
-
 pangea.init = function(){
   console.log('pangea.init called')
   	

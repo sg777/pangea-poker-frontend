@@ -138,7 +138,6 @@ pangea.onMessage = function(message){
 	message=JSON.parse(message)
 	if(message["method"] == "game")
 	{
-		pangea.init_seats(message["game"]["seats"])
 		pangea.API.game(message["game"])
 	}
 	else if(message["method"] == "seats")

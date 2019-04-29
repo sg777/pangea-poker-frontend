@@ -330,11 +330,7 @@ pangea.onMessage_player1 = function(message){
   {
    	console.log(message["deal"])
   	pangea.API.deal(message["deal"])
-  	console.log(message["deal"]["holecards"][0])
-  	console.log(message["deal"]["holecards"][1])
-	message["deal"]["holecards"][0]="AH"
-	message["deal"]["holecards"][1]="AH"
-	pangea.API.deal(message["deal"])
+ 
   }
   else if(message["method"] == "requestShare")
   {

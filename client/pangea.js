@@ -294,6 +294,6 @@ $('.custom-bet-btn').click(function(){
   }
 })
 //pangea.init()
-pangea.update()
+//pangea.update()
 
     

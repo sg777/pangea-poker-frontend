@@ -138,6 +138,7 @@ pangea.onMessage = function(message){
 	message=JSON.parse(message)
 	if(message["method"] == "game")
 	{
+		pangea.init_seats(message["game"]["seats"])
 		pangea.API.game(message["game"])
 	}
 	else if(message["method"] == "seats")
@@ -328,6 +329,7 @@ pangea.onMessage_player1 = function(message){
 
   if(message["method"] == "deal")
   {
+  	pangea.player.seat=0
    	console.log(message["deal"])
 	message["deal"]["holecards"][0]="AH"
 	message["deal"]["holecards"][1]="AH"
@@ -373,6 +375,7 @@ pangea.onMessage_player2 = function(message){
 
   if(message["method"] == "deal")
   {
+  	pangea.player.seat=1
   	pangea.API.deal(message["deal"])
   }
   else if(message["method"] == "requestShare")

@@ -362,7 +362,8 @@ pangea.onMessage_player1 = function(message){
   }
   else if((message["action"] =="check")||(message["action"] =="call")||(message["action"] =="raise")||(message["action"] =="fold")||(message["action"] =="allin"))
   {
-    message["gui_playerID"]=0;
+  	pangea.gui.addPlayerControls()
+    message["gui_playerID"]=0
     pangea.sendMessage(message)
   }  
   else
@@ -404,7 +405,8 @@ pangea.onMessage_player2 = function(message){
   }
   else if((message["action"] =="check")||(message["action"] =="call")||(message["action"] =="raise")||(message["action"] =="fold")||(message["action"] =="allin"))
   {
-    message["gui_playerID"]=1;
+  	pangea.gui.addPlayerControls()
+    message["gui_playerID"]=1
     pangea.sendMessage(message)
   }    
   else

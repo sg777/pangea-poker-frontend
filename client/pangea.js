@@ -49,6 +49,7 @@ pangea.init = function(){
     newSeat.update()
   }
   pangea.initBoardCards()
+  pangea.gameAPI()	
 }
 
 pangea.update = function(){

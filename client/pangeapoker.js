@@ -139,10 +139,16 @@ pangea.onMessage = function(message){
 	if(message["method"] == "game")
 	{
 		pangea.API.game(message["game"])
+		 pangea.seatsAPI()	
 	}
 	else if(message["method"] == "seats")
 	{
 		pangea.API.seats(message["seats"])
+		pangea.dcv()	
+	}
+	else if(message["method"] == "dcv")
+	{
+		pangea.bvv()	
 	}
 	else if(message["method"] =="bvv_join")
 	{

@@ -114,12 +114,12 @@ pangea.gui.dealcards = function(){
   }
 }
 
-pangea.gui.bet_dealcards = function(index){
+pangea.gui.bet_dealcards = function(){
   var delay = 50
   var dealTheseCards = []
   console.log(pangea.deck)
 
-	var seat=pangea.seats[index]
+	var seat = pangea.seats[pangea.player.seat]
 	if(pangea.player.holecards[0] == null)
 	{
 		dealTheseCards.push(seat.facedown1)

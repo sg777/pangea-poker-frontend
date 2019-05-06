@@ -210,13 +210,13 @@
 #allin {
     position:absolute;
     top:542px;
-    left:660px;
+    left:420px;
 }
 
 #raise {
     position:absolute;
     top:542px;
-    left:660px;
+    left:540px;
 }
 
 #call {
@@ -285,7 +285,7 @@ input[type=checkbox] {
 
 #bet-label {
     position:absolute;
-    top:467px;
+    top:447px;
     left:608px;
     font-weight:bold;
     color:#fff;
@@ -293,7 +293,7 @@ input[type=checkbox] {
 
 #bet-amount {
     position:absolute;
-    top:466px;
+    top:446px;
     left:706px;
     width:50px;
     text-align:right;

@@ -328,7 +328,7 @@ pangea.onMessage_player1 = function(message){
 
   if(message["method"] == "deal")
   {
-  	pangea.player.seat=1
+  	pangea.player.seat=0
   	pangea.API.deal(message["deal"])
  
   }

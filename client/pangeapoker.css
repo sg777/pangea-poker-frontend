@@ -207,6 +207,23 @@
     left:660px;
 }
 
+#allin {
+    position:absolute;
+    top:532px;
+    left:660px;
+}
+
+#raise {
+    position:absolute;
+    top:532px;
+    left:660px;
+}
+
+#call {
+    position:absolute;
+    top:532px;
+    left:660px;
+}
 #autocontrols {
     position:absolute;
     top:458px;

@@ -76,7 +76,8 @@ pangea.API.deal = function(message){
   }
   if (is_holecards){
 	console.log('pangea.gui.dealcards')
-	pangea.gui.dealcards()
+	//pangea.gui.dealcards()
+	pangea.gui.bet_dealcards(message["gui_PlayerID"])
 	}
   pangea.update()
 }

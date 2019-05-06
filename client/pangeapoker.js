@@ -328,6 +328,7 @@ pangea.onMessage_player1 = function(message){
 
   if(message["method"] == "deal")
   {
+  	message["gui_PlayerID"]=0
   	pangea.player.seat=0
    	console.log(message["deal"])
 	message["deal"]["holecards"][0]="AH"
@@ -374,6 +375,7 @@ pangea.onMessage_player2 = function(message){
 
   if(message["method"] == "deal")
   {
+  	message["gui_PlayerID"]=1
   	pangea.player.seat=1
 	message["deal"]["holecards"][0]="2C"
 	message["deal"]["holecards"][1]="3S"

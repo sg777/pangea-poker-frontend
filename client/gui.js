@@ -120,10 +120,24 @@ pangea.gui.bet_dealcards = function(index){
   console.log(pangea.deck)
 
 	var seat=pangea.seats[index]
-    seat.faceup1.image = pangea.deck[pangea.player.holecards[0]]
-    seat.faceup2.image = pangea.deck[pangea.player.holecards[1]]
-    dealTheseCards.push(seat.faceup1)
-    dealTheseCards.push(seat.faceup2)
+	if(pangea.player.holecards[0] == null)
+	{
+		dealTheseCards.push(seat.facedown1)
+	}
+	else
+	{
+		seat.faceup1.image = pangea.deck[pangea.player.holecards[0]]
+		dealTheseCards.push(seat.faceup1)
+	}
+	if(pangea.player.holecards[1] == null)
+	{
+		dealTheseCards.push(seat.facedown1)
+	}
+	else
+	{
+		seat.faceup2.image = pangea.deck[pangea.player.holecards[1]]
+			dealTheseCards.push(seat.faceup2)
+	}
   
 /*  
   for (var i=0; i < pangea.seats.length; i++){

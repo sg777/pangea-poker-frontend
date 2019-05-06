@@ -8,9 +8,8 @@ pangea.API = new Object()
 pangea.API.seats = function(seatArray){
   for (var i=0; i < seatArray.length; i++){
     var seatIndex = seatArray[i]['seat']
-    console.log('seatIndex: ',seatIndex)
     pangea.seats[seatIndex].update(seatArray[i])    
-    console.log(pangea.seats[seatIndex])
+    
   }
   pangea.update()
 }   
@@ -77,7 +76,7 @@ pangea.API.deal = function(message){
   }
   if (is_holecards){
 	console.log('pangea.gui.dealcards')
-	//pangea.gui.dealcards()
+	pangea.gui.dealcards()
 	}
   pangea.update()
 }

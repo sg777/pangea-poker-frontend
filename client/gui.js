@@ -114,6 +114,48 @@ pangea.gui.dealcards = function(){
   }
 }
 
+pangea.gui.bet_dealcards = function(index){
+  var delay = 50
+  var dealTheseCards = []
+  console.log(pangea.deck)
+
+	var seat=pangea.seats[index]
+    seat.faceup1.image = pangea.deck[pangea.player.holecards[0]]
+    seat.faceup2.image = pangea.deck[pangea.player.holecards[1]]
+    dealTheseCards.push(seat.faceup1)
+    dealTheseCards.push(seat.faceup2)
+  
+/*  
+  for (var i=0; i < pangea.seats.length; i++){
+    var index = pangea.tableOrder[i]
+    var seat = pangea.seats[index]
+    if (seat.playing == 1){
+      if (seat.player == 1){
+        seat.faceup1.image = pangea.deck[pangea.player.holecards[0]]
+        dealTheseCards.push(seat.faceup1)
+      } else {dealTheseCards.push(seat.facedown1)}
+    }
+  }
+  for (var j=0; j < pangea.seats.length; j++){
+    var seat = pangea.seats[j]
+    if (seat.playing == 1){
+      if (seat.player == 1){
+        seat.faceup2.image = pangea.deck[pangea.player.holecards[1]]
+        dealTheseCards.push(seat.faceup2)
+      } else {dealTheseCards.push(seat.facedown2)}
+    }
+  }
+ */
+ 
+  for (var k=0; k < dealTheseCards.length; k++){
+    window.setTimeout(function(){
+      var thiscard = dealTheseCards.shift()
+      thiscard.deal()
+    }, delay * k)
+  }
+}
+
+
 pangea.gui.showboardcards = function(){
   for (var card in pangea.boardcards){
     pangea.boardcards[card].deal()}

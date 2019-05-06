@@ -134,6 +134,7 @@ pangea.onMessage = function(message){
 	}
 	}
 	*/
+	pangea.gui.addPlayerControls()
 	console.log('Received: DCV: ',message)
 	message=JSON.parse(message)
 	if(message["method"] == "game")
@@ -362,7 +363,7 @@ pangea.onMessage_player1 = function(message){
   }
   else if((message["action"] =="check")||(message["action"] =="call")||(message["action"] =="raise")||(message["action"] =="fold")||(message["action"] =="allin"))
   {
-  	pangea.gui.addPlayerControls()
+  	
     message["gui_playerID"]=0
     pangea.sendMessage(message)
   }  
@@ -405,7 +406,6 @@ pangea.onMessage_player2 = function(message){
   }
   else if((message["action"] =="check")||(message["action"] =="call")||(message["action"] =="raise")||(message["action"] =="fold")||(message["action"] =="allin"))
   {
-  	pangea.gui.addPlayerControls()
     message["gui_playerID"]=1
     pangea.sendMessage(message)
   }    

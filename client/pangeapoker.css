@@ -191,37 +191,37 @@
 
 #fold {
     position:absolute;
-    top:532px;
+    top:482px;
     left:420px;
 }
 
 #check {
     position:absolute;
-    top:532px;
+    top:482px;
     left:540px;
 }
 
 #bet {
     position:absolute;
-    top:532px;
+    top:482px;
     left:660px;
 }
 
 #allin {
     position:absolute;
-    top:592px;
+    top:542px;
     left:660px;
 }
 
 #raise {
     position:absolute;
-    top:592px;
+    top:542px;
     left:660px;
 }
 
 #call {
     position:absolute;
-    top:592px;
+    top:542px;
     left:660px;
 }
 #autocontrols {

@@ -119,7 +119,7 @@ $('#bet').click(function(){
     pangea.sendMessage({'action':{'bet':thisBet}})
   }
 })
-/*
+
 $('#allin').click(function(){
 	pangea.action_clicked = "allin"
 	console.log(pangea.controls)	
@@ -135,7 +135,7 @@ $('#call').click(function(){
 	console.log(pangea.controls)	
  })
 	
-*/
+
 
 pangea.sendChat = function(){
   console.log('pangea.sendChat')

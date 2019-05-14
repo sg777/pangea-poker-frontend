@@ -54,10 +54,7 @@ pangea.init = function(){
 }
 
 pangea.update = function(){
-  console.log('pangea.update called')
   pangea.gui.updateSeats()
-  console.log(pangea.seats)
-  console.log(pangea.player)
   for (var seat in pangea.seats){
     pangea.seats[seat].update()
   }

@@ -86,7 +86,6 @@ pangea.gui.gametype = function(){
 pangea.gui.dealcards = function(){
   var delay = 50
   var dealTheseCards = []
-  console.log(pangea.deck)
   for (var i=0; i < pangea.seats.length; i++){
     var index = pangea.tableOrder[i]
     var seat = pangea.seats[index]
@@ -117,7 +116,6 @@ pangea.gui.dealcards = function(){
 pangea.gui.bet_dealcards = function(){
   var delay = 50
   var dealTheseCards = []
-  console.log(pangea.deck)
 
 	var seat = pangea.seats[pangea.player.seat]
 	if(pangea.player.holecards[0] == null)

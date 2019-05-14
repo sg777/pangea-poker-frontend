@@ -287,18 +287,20 @@ pangea.onMessage = function(message){
 		{
 		  if(message["action"] == "round_betting"){
 		  pangea.processControls(message)
-		  }	
-		  	
-		  console.log(message["action"])
-		  if(message["playerid"] == 0)
-		  {
-		     message["gui_playerID"]=0
-		     pangea.sendMessage_player1(message) 
 		  }
-		  else if(message["playerid"] == 1)
+		  else
 		  {
-		    message["gui_playerID"]=1
-		    pangea.sendMessage_player2(message)
+		  	console.log(message["action"])
+		  	if(message["playerid"] == 0)
+		  	{
+		    	 message["gui_playerID"]=0
+		     	pangea.sendMessage_player1(message) 
+		  	}
+		  	else if(message["playerid"] == 1)
+		  	{
+		    	message["gui_playerID"]=1
+		    	pangea.sendMessage_player2(message)
+		  	}
 		  }
 		}
 		else if(message["action"]=="small_blind_bet")

@@ -189,7 +189,6 @@ pangea.Seat.prototype.showBet = function(thisseat){
 
 pangea.Seat.prototype.update = function(params){
   for (var param in params){
-    console.log('param :',param)
     if (this.hasOwnProperty(param)){
       this[param] = params[param]
     } else {

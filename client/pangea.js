@@ -123,20 +123,17 @@ $('#bet').click(function(){
 $('#allin').click(function(){
 	pangea.action_clicked = "allin"
 	console.log(pangea.controls)	
- }
-})
+ })
 
 $('#raise').click(function(){
 	pangea.action_clicked = "raise"
 	console.log(pangea.controls)
- }
-})
+ })
 
 $('#call').click(function(){
 	pangea.action_clicked = "call"
 	console.log(pangea.controls)	
- }
-})
+ })
 	
 
 

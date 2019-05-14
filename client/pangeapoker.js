@@ -134,7 +134,7 @@ pangea.processPossibilities = function(message){
 	$('#bet-amount').addClass('hide')
 	$('#bet-label').addClass('hide')
 
-	for(var i=0,i<message.length;i++)
+	for(var i=0;i<message.length;i++)
 	{
 		if(possibilities[i]=="check")
 		{

@@ -120,6 +120,60 @@ pangea.processDefault = function(message){
     console.log(key,':',message[key])
 }
 
+pangea.processPossibilities = function(message){
+	console.log(message)
+	var possibilities=["","small_blind","big_blind","check","raise","call","allin","fold"]
+
+	$('#fold').addClass('hide')
+	$('#check').addClass('hide')
+	$('#bet').addClass('hide')
+	$('#allin').addClass('hide')
+	$('#raise').addClass('hide')
+	$('#call').addClass('hide')
+	
+	$('#bet-amount').addClass('hide')
+	$('#bet-label').addClass('hide')
+
+	for(var i=0,i<message.length;i++)
+	{
+		if(possibilities[i]=="check")
+		{
+			$('#check').removeClass('hide')
+		}
+		else if(possibilities[i]=="raise")
+		{
+			$('#raise').removeClass('hide')
+			$('#bet-amount').addClass('hide')
+			$('#bet-label').addClass('hide')
+	
+		}
+		else if(possibilities[i]=="call")
+		{
+			$('#call').removeClass('hide')
+		}
+		else if(possibilities[i]=="allin")
+		{
+			$('#allin').removeClass('hide')
+		}
+		else if(possibilities[i]=="fold")
+		{
+			$('#fold').removeClass('hide')
+		}
+	}
+	
+}
+
+pangea.processControls = function(message){
+	message=JSON.parse(message)
+	console.log(message)
+	pangea.controls=message
+	for(var key in message)
+	{
+		if(key == "possibilities")
+			pangea.processPossibilities(message[key])
+	}
+}
+
 pangea.onMessage = function(message){
 	/*
 	var handlers = {'action':pangea.API.action, 'game':pangea.API.game, 'seats':pangea.API.seats, 
@@ -230,6 +284,9 @@ pangea.onMessage = function(message){
 	{
 		if((message["action"] == "small_blind")||(message["action"] == "big_blind")||(message["action"] == "round_betting"))
 		{
+		  if(message["action"] == "round_betting")
+		  	pangea.processControls(message)
+		  	
 		  console.log(message["action"])
 		  if(message["playerid"] == 0)
 		  {
@@ -491,3 +548,6 @@ pangea.openWebSocket_player2 = function(){
 
 pangea.wsURI_player2 = 'ws://159.69.23.29:9003'
 pangea.ws_player2 = pangea.openWebSocket_player2()
+
+var pangea.controls
+var pangea.action_clicked	

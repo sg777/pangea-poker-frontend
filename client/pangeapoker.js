@@ -166,7 +166,7 @@ pangea.processPossibilities = function(message){
 pangea.processControls = function(message){
 	message=JSON.parse(message)
 	console.log(message)
-	pangea.controls=message
+	//pangea.controls=message
 	for(var key in message)
 	{
 		if(key == "possibilities")
@@ -284,8 +284,9 @@ pangea.onMessage = function(message){
 	{
 		if((message["action"] == "small_blind")||(message["action"] == "big_blind")||(message["action"] == "round_betting"))
 		{
-		  if(message["action"] == "round_betting")
-		  	pangea.processControls(message)
+		  if(message["action"] == "round_betting"){
+		  pangea.processControls(message)
+		  }	
 		  	
 		  console.log(message["action"])
 		  if(message["playerid"] == 0)
@@ -549,5 +550,5 @@ pangea.openWebSocket_player2 = function(){
 pangea.wsURI_player2 = 'ws://159.69.23.29:9003'
 pangea.ws_player2 = pangea.openWebSocket_player2()
 
-var pangea.controls = ""
-var pangea.action_clicked = ""	
+//var pangea.controls = ""
+//var pangea.action_clicked = ""	

@@ -136,26 +136,26 @@ pangea.processPossibilities = function(message){
 
 	for(var i=0;i<message.length;i++)
 	{
-		if(possibilities[i]=="check")
+		if(possibilities[message[i]]=="check")
 		{
 			$('#check').removeClass('hide')
 		}
-		else if(possibilities[i]=="raise")
+		else if(possibilities[message[i]]=="raise")
 		{
 			$('#raise').removeClass('hide')
 			$('#bet-amount').addClass('hide')
 			$('#bet-label').addClass('hide')
 	
 		}
-		else if(possibilities[i]=="call")
+		else if(possibilities[message[i]]=="call")
 		{
 			$('#call').removeClass('hide')
 		}
-		else if(possibilities[i]=="allin")
+		else if(possibilities[message[i]]=="allin")
 		{
 			$('#allin').removeClass('hide')
 		}
-		else if(possibilities[i]=="fold")
+		else if(possibilities[message[i]]=="fold")
 		{
 			$('#fold').removeClass('hide')
 		}

@@ -143,8 +143,8 @@ pangea.processPossibilities = function(message){
 		else if(possibilities[message[i]]=="raise")
 		{
 			$('#raise').removeClass('hide')
-			$('#bet-amount').addClass('hide')
-			$('#bet-label').addClass('hide')
+			$('#bet-amount').removeClass('hide')
+			$('#bet-label').removeClass('hide')
 	
 		}
 		else if(possibilities[message[i]]=="call")

@@ -166,7 +166,6 @@ pangea.processPossibilities = function(message){
 pangea.processControls = function(message){
 	
 	console.log(message)
-	message=JSON.parse(message)
 	
 	pangea.controls=message
 	for(var key in message)

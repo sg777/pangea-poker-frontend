@@ -172,6 +172,11 @@ pangea.processControls = function(message){
 	{
 		if(key == "possibilities")
 			pangea.processPossibilities(message[key])
+		else if(key == "min_amount")
+		{
+			pangea.game.tocall=min_amount
+			pangea.gui.tocall()	
+		}
 	}
 }
 

@@ -138,9 +138,9 @@ $('#raise').click(function(){
 		var poss_array = pangea.controls["possibilities"] 	
 		for(var i=0;i<pangea.controls["possibilities"].length;i++)
 		{
-			if(pangea.controls["possibilitites"][i]!=possibilities.indexOf("raise"))
+			if(pangea.controls["possibilities"][i]!=possibilities.indexOf("raise"))
 			{
-				pangea.controls["possibilitites"].splice(i)
+				pangea.controls["possibilities"].splice(i)
 				i=-1
 			}
 		}

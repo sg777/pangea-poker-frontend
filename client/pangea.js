@@ -220,18 +220,19 @@ $('#raise').click(function(){
 				i=-1
 			}
 		}
+
+		console.log(pangea.controls)
+	  	if(pangea.controls["playerid"] == 0)
+		{
+			pangea.controls["gui_playerID"]=0
+	 		pangea.sendMessage_player1(pangea.controls) 
+		}
+		else if(pangea.controls["playerid"] == 1)
+		{
+			pangea.controls["gui_playerID"]=1
+			pangea.sendMessage_player2(pangea.controls)
+		}
 		
-	}
-	console.log(pangea.controls)
-  	if(pangea.controls["playerid"] == 0)
-	{
-		pangea.controls["gui_playerID"]=0
- 		pangea.sendMessage_player1(pangea.controls) 
-	}
-	else if(pangea.controls["playerid"] == 1)
-	{
-		pangea.controls["gui_playerID"]=1
-		pangea.sendMessage_player2(pangea.controls)
 	}
 		
  })

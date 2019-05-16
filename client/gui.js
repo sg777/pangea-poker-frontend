@@ -39,6 +39,11 @@ pangea.gui.addNoLabelandControls = function(){
   $('#fold').addClass('hide')
   $('#check').addClass('hide')
   $('#bet').addClass('hide')
+  $('#allin').addClass('hide')
+  $('#raise').addClass('hide')
+  $('#call').addClass('hide')
+	
+  
   $('#bet_slider').addClass('hide')
   $('#bet-amount').addClass('hide')
   $('#bet-label').addClass('hide')

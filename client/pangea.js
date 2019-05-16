@@ -58,7 +58,8 @@ pangea.update = function(){
   for (var seat in pangea.seats){
     pangea.seats[seat].update()
   }
-  pangea.gui.addPlayerControls()	
+  pangea.gui.addNoLabelandControls()
+  //pangea.gui.addPlayerControls()	
   /*
   if (pangea.player.sitting != 0){
     pangea.gui.addPlayerControls()

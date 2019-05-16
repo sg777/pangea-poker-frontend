@@ -34,6 +34,19 @@ pangea.gui.addPlayerControls = function(){
   // $('.custom-bet-btn').removeClass('hide')
 }
 
+pangea.gui.addNoLabelandControls = function(){
+  $('#join-label').addClass('hide')
+  $('#fold').addClass('hide')
+  $('#check').addClass('hide')
+  $('#bet').addClass('hide')
+  $('#bet_slider').addClass('hide')
+  $('#bet-amount').addClass('hide')
+  $('#bet-label').addClass('hide')
+  $('.custom-bet-btn').addClass('hide')
+  $('#autocontrols').addClass('hide')
+
+}
+
 pangea.gui.centerPotAmount = function(){
   var width = $('#pot-amount').outerWidth()
   var center = 400

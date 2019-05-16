@@ -100,39 +100,114 @@ $('#bet_slider').on("input", function(){
 })
 
 $('#fold').click(function(){
+/*
   if (pangea.game.myturn == 1){
     pangea.sendMessage({'action':{'fold':'1'}})
   } else {
     $('#checkbox1').click()
   }
+ */
+ 	var possibilities=["","small_blind","big_blind","check","raise","call","allin","fold"]
+
+	for(var i=0;i<pangea.controls["possibilities"].length;i++)
+	{
+		if(pangea.controls["possibilities"][i]!=possibilities.indexOf("fold"))
+		{
+			pangea.controls["possibilities"].splice(i,1)
+			i=-1
+		}
+	}
+  	if(pangea.controls["playerid"] == 0)
+	{
+		pangea.controls["gui_playerID"]=0
+ 		pangea.sendMessage_player1(pangea.controls) 
+	}
+	else if(pangea.controls["playerid"] == 1)
+	{
+		pangea.controls["gui_playerID"]=1
+		pangea.sendMessage_player2(pangea.controls)
+	}
+	
+	console.log(pangea.controls)	
+
 })
 
 $('#check').click(function(){
+/*
   var thisBet = pangea.game.tocall
   if (pangea.game.myturn == 1){
     pangea.sendMessage({'action':{'bet':thisBet}})
   }
+*/
+
+	var possibilities=["","small_blind","big_blind","check","raise","call","allin","fold"]
+
+	for(var i=0;i<pangea.controls["possibilities"].length;i++)
+	{
+		if(pangea.controls["possibilities"][i]!=possibilities.indexOf("check"))
+		{
+			pangea.controls["possibilities"].splice(i,1)
+			i=-1
+		}
+	}
+  	if(pangea.controls["playerid"] == 0)
+	{
+		pangea.controls["gui_playerID"]=0
+ 		pangea.sendMessage_player1(pangea.controls) 
+	}
+	else if(pangea.controls["playerid"] == 1)
+	{
+		pangea.controls["gui_playerID"]=1
+		pangea.sendMessage_player2(pangea.controls)
+	}
+	
+	console.log(pangea.controls)	
+
+
 })
 
 $('#bet').click(function(){
+/*
   var thisBet = $('#bet-amount').val()
   if (thisBet >= pangea.game.tocall){
     pangea.sendMessage({'action':{'bet':thisBet}})
   }
+*/  
 })
 
 $('#allin').click(function(){
 	var possibilities=["","small_blind","big_blind","check","raise","call","allin","fold"]
-	pangea.action_clicked = possibilities.indexOf("allin")
+
+	for(var i=0;i<pangea.controls["possibilities"].length;i++)
+	{
+		if(pangea.controls["possibilities"][i]!=possibilities.indexOf("allin"))
+		{
+			pangea.controls["possibilities"].splice(i,1)
+			i=-1
+		}
+	}
+  	if(pangea.controls["playerid"] == 0)
+	{
+		pangea.controls["gui_playerID"]=0
+ 		pangea.sendMessage_player1(pangea.controls) 
+	}
+	else if(pangea.controls["playerid"] == 1)
+	{
+		pangea.controls["gui_playerID"]=1
+		pangea.sendMessage_player2(pangea.controls)
+	}
+	
 	console.log(pangea.controls)	
  })
 
 $('#raise').click(function(){
 	var possibilities=["","small_blind","big_blind","check","raise","call","allin","fold"]
-	pangea.action_clicked = possibilities.indexOf("raise")
 	var thisBet = $('#bet-amount').val()
+
 	if((thisBet < pangea.big_blind) || (thisBet < pangea.controls["min_amount"]))
+	{
 		window.alert("The raise amount should be greater than "+pangea.big_blind+ " and "+pangea.controls["min_amount"])
+	}
 	else
 	{
 		pangea.controls["bet_amount"]=thisBet
@@ -148,13 +223,45 @@ $('#raise').click(function(){
 		
 	}
 	console.log(pangea.controls)
+  	if(pangea.controls["playerid"] == 0)
+	{
+		pangea.controls["gui_playerID"]=0
+ 		pangea.sendMessage_player1(pangea.controls) 
+	}
+	else if(pangea.controls["playerid"] == 1)
+	{
+		pangea.controls["gui_playerID"]=1
+		pangea.sendMessage_player2(pangea.controls)
+	}
+		
  })
 
 $('#call').click(function(){
 	var possibilities=["","small_blind","big_blind","check","raise","call","allin","fold"]
-	pangea.action_clicked = possibilities.indexOf("call")
+
+	for(var i=0;i<pangea.controls["possibilities"].length;i++)
+	{
+		if(pangea.controls["possibilities"][i]!=possibilities.indexOf("call"))
+		{
+			pangea.controls["possibilities"].splice(i,1)
+			i=-1
+		}
+	}
 
 	console.log(pangea.controls)	
+
+  	if(pangea.controls["playerid"] == 0)
+	{
+		pangea.controls["gui_playerID"]=0
+ 		pangea.sendMessage_player1(pangea.controls) 
+	}
+	else if(pangea.controls["playerid"] == 1)
+	{
+		pangea.controls["gui_playerID"]=1
+		pangea.sendMessage_player2(pangea.controls)
+	}
+
+
  })
 	
 

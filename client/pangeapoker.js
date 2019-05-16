@@ -290,7 +290,6 @@ pangea.onMessage = function(message){
 		  }
 		  else
 		  {
-		  	console.log(message["action"])
 		  	if(message["playerid"] == 0)
 		  	{
 		    	 message["gui_playerID"]=0

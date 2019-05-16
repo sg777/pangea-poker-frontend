@@ -135,12 +135,13 @@ $('#raise').click(function(){
 	else
 	{
 		pangea.controls["bet_amount"]=thisBet
-		for(var i=0;i<pangea.controls["possibilitites"].length;i++)
+		var poss_array = pangea.controls["possibilitites"] 	
+		for(var i=0;i<poss_array.length;i++)
 		{
 			if(pangea.controls["possibilitites"][i]!=possibilities.indexOf("raise"))
 			{
 				pangea.controls["possibilitites"].splice(i)
-				i=-1
+				//i=-1
 			}
 		}
 		

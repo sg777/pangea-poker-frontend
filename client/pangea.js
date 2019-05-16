@@ -140,7 +140,7 @@ $('#raise').click(function(){
 		{
 			if(pangea.controls["possibilities"][i]!=possibilities.indexOf("raise"))
 			{
-				pangea.controls["possibilities"].splice(i)
+				pangea.controls["possibilities"].splice(i,1)
 				i=-1
 			}
 		}

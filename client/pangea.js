@@ -232,7 +232,7 @@ $('#raise').click(function(){
 			pangea.controls["gui_playerID"]=1
 			pangea.sendMessage_player2(pangea.controls)
 		}
-		
+		document.getElementById('bet_amount').value = "";
 	}
 		
  })

@@ -189,7 +189,7 @@ pangea.onMessage = function(message){
 	}
 	}
 	*/
-	pangea.gui.addPlayerControls()
+	//pangea.gui.addPlayerControls()
 	console.log('Received: DCV: ',message)
 	message=JSON.parse(message)
 	if(message["method"] == "game")

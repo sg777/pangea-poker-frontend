@@ -555,3 +555,6 @@ pangea.ws_player2 = pangea.openWebSocket_player2()
 
 pangea.controls = ""
 pangea.action_clicked = ""	
+
+pangea.small_blind = 1000000
+pangea.big_blind = 2000000

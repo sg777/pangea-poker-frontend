@@ -121,17 +121,37 @@ $('#bet').click(function(){
 })
 
 $('#allin').click(function(){
-	pangea.action_clicked = "allin"
+	var possibilities=["","small_blind","big_blind","check","raise","call","allin","fold"]
+	pangea.action_clicked = possibilities.indexOf("allin")
 	console.log(pangea.controls)	
  })
 
 $('#raise').click(function(){
-	pangea.action_clicked = "raise"
+	var possibilities=["","small_blind","big_blind","check","raise","call","allin","fold"]
+	pangea.action_clicked = possibilities.indexOf("raise")
+	var thisBet = $('#bet-amount').val()
+	if((thisBet < pangea.big_blind) || (thisBet < pangea.controls["min_amount"]))
+		window.alert("The raise amount should be greater than "+pangea.big_blind+ " and "+pangea.controls["min_amount"])
+	else
+	{
+		pangea.controls["bet_amount"]=thisBet
+		for(var i=0;i<pangea.controls["possibilitites"].length;i++)
+		{
+			if(pangea.controls["possibilitites"][i]!=possibilities.indexOf("raise"))
+			{
+				pangea.controls["possibilitites"].splice(i)
+				i=-1
+			}
+		}
+		
+	}
 	console.log(pangea.controls)
  })
 
 $('#call').click(function(){
-	pangea.action_clicked = "call"
+	var possibilities=["","small_blind","big_blind","check","raise","call","allin","fold"]
+	pangea.action_clicked = possibilities.indexOf("call")
+
 	console.log(pangea.controls)	
  })
 	

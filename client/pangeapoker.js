@@ -174,7 +174,7 @@ pangea.processControls = function(message){
 			pangea.processPossibilities(message[key])
 		else if(key == "min_amount")
 		{
-			pangea.game.tocall=min_amount
+			pangea.game.tocall=message["min_amount"]
 			pangea.gui.tocall()	
 		}
 	}

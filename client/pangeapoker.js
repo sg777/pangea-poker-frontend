@@ -290,8 +290,19 @@ pangea.onMessage = function(message){
 	{
 		if((message["action"] == "small_blind")||(message["action"] == "big_blind")||(message["action"] == "round_betting"))
 		{
-		  if(message["action"] == "round_betting"){
-		  pangea.processControls(message)
+		  if(message["action"] == "round_betting")
+		  {
+		  	if(message["playerid"] == 0)
+		  	{
+		  		var push_msg={"method":"push_cards", "playerid":0}
+		  		pangea.sendMessage_player1(push_msg)	
+		  	}
+			else if(message["playerid"] == 1)
+		  	{
+		  		var push_msg={"method":"push_cards", "playerid":1}
+		  		pangea.sendMessage_player2(push_msg)
+		  	}
+		  	pangea.processControls(message)
 		  }
 		  else
 		  {

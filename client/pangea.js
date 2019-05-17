@@ -78,7 +78,7 @@ pangea.update = function(){
 
   pangea.gui.showboardcards()
   pangea.gui.betSlider()
-  pangea.gui.callRaise()
+  //pangea.gui.callRaise()
   pangea.API.checkAutoControls()
   pangea.gui.timer()
 }

@@ -292,17 +292,20 @@ pangea.onMessage = function(message){
 		{
 		  if(message["action"] == "round_betting")
 		  {
+		  	message["method"] ="replay"
+		  
 		  	if(message["playerid"] == 0)
 		  	{
-		  		var push_msg={"method":"push_cards", "playerid":0}
-		  		pangea.sendMessage_player1(push_msg)	
+		  		//var push_msg={"method":"push_cards", "playerid":0}
+		  		pangea.sendMessage_player1(message)	
 		  	}
 			else if(message["playerid"] == 1)
 		  	{
-		  		var push_msg={"method":"push_cards", "playerid":1}
-		  		pangea.sendMessage_player2(push_msg)
+		  		//var push_msg={"method":"push_cards", "playerid":1}
+		  		pangea.sendMessage_player2(message)
 		  	}
-		  	pangea.processControls(message)
+		  	//pangea.processControls(message)
+		  	
 		  }
 		  else
 		  {
@@ -442,7 +445,13 @@ pangea.onMessage_player1 = function(message){
   	
     message["gui_playerID"]=0
     pangea.sendMessage(message)
-  }  
+  }
+  else if(message["method"] == "replay")
+  {
+  	message["method"]="betting"
+	message["gui_playerID"]=0
+	pangea.processControls(message)	
+  }
   else
   {
      pangea.sendMessage(message)
@@ -484,7 +493,14 @@ pangea.onMessage_player2 = function(message){
   {
     message["gui_playerID"]=1
     pangea.sendMessage(message)
-  }    
+  }  
+  else if(message["method"] == "replay")
+  {
+  	message["method"]="betting"
+	message["gui_playerID"]=1
+	pangea.processControls(message)	
+  }
+
   else
   {
      pangea.sendMessage(message)

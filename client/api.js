@@ -78,7 +78,7 @@ pangea.API.deal = function(message){
 	//pangea.gui.dealcards()
 	pangea.gui.bet_dealcards()
 	}
-  //pangea.update()
+  pangea.update()
 }
 
 pangea.API.action = function(actions){

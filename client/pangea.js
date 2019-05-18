@@ -44,7 +44,7 @@ pangea.init = function(){
   console.log('pangea.init called')
   $('#seats').addClass('hide')
   $('#bvv').addClass('hide')	
-  $('#bvv').addClass('hide')
+  $('#dcv').addClass('hide')
   $('#player1').addClass('hide')
   $('#player2').addClass('hide')
  	

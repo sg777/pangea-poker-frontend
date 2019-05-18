@@ -42,7 +42,12 @@ pangea.initBoardCards = function(){
 
 pangea.init = function(){
   console.log('pangea.init called')
-  	
+  $('#seats').addClass('hide')
+  $('#bvv').addClass('hide')	
+  $('#bvv').addClass('hide')
+  $('#player1').addClass('hide')
+  $('#player2').addClass('hide')
+ 	
   for (var i=0; i<9; i++){
     var newSeat = new pangea.Seat(i)
     pangea.seats.push(newSeat)
@@ -50,7 +55,7 @@ pangea.init = function(){
   }
   pangea.initBoardCards()
   pangea.update()
-  pangea.gameAPI()	
+  	
 }
 
 pangea.update = function(){
@@ -301,10 +306,6 @@ pangea.gameAPI = function(){
   pangea.sendMessage({'method':chatMessage})
 
   $('#game').addClass('hide')
-  $('#seats').addClass('hide')
-  $('#bvv').addClass('hide')
-  $('#player1').addClass('hide')
-  $('#player2').addClass('hide')
 	
 }
 

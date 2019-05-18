@@ -127,7 +127,7 @@ $('#fold').click(function(){
 		pangea.controls["gui_playerID"]=1
 		pangea.sendMessage_player2(pangea.controls)
 	}
-	
+	pangea.gui.addNoLabelandControls()
 	console.log(pangea.controls)	
 
 })
@@ -160,7 +160,7 @@ $('#check').click(function(){
 		pangea.controls["gui_playerID"]=1
 		pangea.sendMessage_player2(pangea.controls)
 	}
-	
+	pangea.gui.addNoLabelandControls()
 	console.log(pangea.controls)	
 
 
@@ -196,7 +196,7 @@ $('#allin').click(function(){
 		pangea.controls["gui_playerID"]=1
 		pangea.sendMessage_player2(pangea.controls)
 	}
-	
+	pangea.gui.addNoLabelandControls()
 	console.log(pangea.controls)	
  })
 
@@ -233,6 +233,7 @@ $('#raise').click(function(){
 			pangea.sendMessage_player2(pangea.controls)
 		}
 		document.getElementById('bet_amount').value = "";
+		pangea.gui.addNoLabelandControls()
 	}
 		
  })
@@ -262,7 +263,7 @@ $('#call').click(function(){
 		pangea.sendMessage_player2(pangea.controls)
 	}
 
-
+	pangea.gui.addNoLabelandControls()
  })
 	
 

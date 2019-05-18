@@ -299,7 +299,13 @@ pangea.gameAPI = function(){
   console.log('game')
   var chatMessage = 'game'
   pangea.sendMessage({'method':chatMessage})
-  
+
+  $('#game').addClass('hide')
+  $('#seats').addClass('hide')
+  $('#bvv').addClass('hide')
+  $('#player1').addClass('hide')
+  $('#player2').addClass('hide')
+	
 }
 
 $('#game').click(function(){

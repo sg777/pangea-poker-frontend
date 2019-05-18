@@ -216,6 +216,9 @@ $('#raise').click(function(){
 	else
 	{
 		pangea.controls["bet_amount"]=thisBet
+		document.getElementById('bet_amount').value = ""
+		pangea.gui.addNoLabelandControls()
+
 		var poss_array = pangea.controls["possibilities"] 	
 		for(var i=0;i<pangea.controls["possibilities"].length;i++)
 		{
@@ -237,8 +240,6 @@ $('#raise').click(function(){
 			pangea.controls["gui_playerID"]=1
 			pangea.sendMessage_player2(pangea.controls)
 		}
-		document.getElementById('bet_amount').value = "";
-		pangea.gui.addNoLabelandControls()
 	}
 		
  })

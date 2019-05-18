@@ -18,11 +18,21 @@ pangea.actions.join = function(seatnum){
   */	
   	if(seatnum == 0)
   	{
+		var text = prompt("IP Address", "Enter the IP Address of the back end node where chipd and lightningd are running");
+  		pangea.wsURI_player1 = 'ws://'+text+':9002'
+  		console.log(pangea.wsURI_player1)	
+  		pangea.ws_player1 = pangea.openWebSocket_player1()
+
   		var message={"method":"player_join", "gui_playerID":seatnum}
   		pangea.sendMessage_player1(message)
   	}
 	else if(seatnum == 1)
 	{
+		var text = prompt("IP Address", "Enter the IP Address of the back end node where chipd and lightningd are running");
+	    pangea.wsURI_player2 = 'ws://'+text+':9003'
+  		console.log(pangea.wsURI_player2)	
+		pangea.ws_player2 = pangea.openWebSocket_player2()
+
 		var message={"method":"player_join", "gui_playerID":seatnum}
 		pangea.sendMessage_player2(message)
 	}

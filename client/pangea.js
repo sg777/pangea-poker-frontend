@@ -18,13 +18,29 @@ pangea.actions.join = function(seatnum){
   */	
   	if(seatnum == 0)
   	{
-		var text = prompt("IP Address", "Enter the IP Address of the back end node where chipd and lightningd are running");
-  		pangea.wsURI_player1 = 'ws://'+text+':9002'
-  		console.log(pangea.wsURI_player1)	
-  		pangea.ws_player1 = pangea.openWebSocket_player1()
+  	    var text = prompt("IP Address", "Enter the IP Address of the back end node where chipd and lightningd are running");
+    	pangea.wsURI_player1 = 'ws://'+text+':9002'
 
-  		var message={"method":"player_join", "gui_playerID":seatnum}
-  		pangea.sendMessage_player1(message)
+        for(var i=0;i<10;i++)
+		{
+			try
+			{
+			  console.log(pangea.wsURI_player1)	
+			  pangea.ws_player1 = pangea.openWebSocket_player1()
+		      var message={"method":"player_join", "gui_playerID":seatnum}
+			  pangea.sendMessage_player1(message)
+
+
+			 break;
+
+			}
+			catch(err)
+			{
+				console.log("Exception Occured "+err)
+				sleep(1000)	
+			}
+		}
+
   	}
 	else if(seatnum == 1)
 	{
@@ -350,26 +366,7 @@ sleep = function(delay){
 
 $('#player2').click(function(){
 
-
-  for(var i=0;i<10;i++)
-  {
-  try
-  {
-  	  var text = prompt("IP Address", "Enter the IP Address of the back end node where chipd and lightningd are running");
-	  pangea.wsURI_player2 = 'ws://'+text+':9003'
-  	  console.log(pangea.wsURI_player2)	
-      pangea.ws_player2 = pangea.openWebSocket_player2()
-	
-	 pangea.player2()
-	 break;
-
-  }
-  catch(err)
-  {
-  	console.log("Exception Occured "+err)
-	sleep(1000)	
-  }
-  }
+  	 pangea.player2()
 })
 
 pangea.player1 = function(){
@@ -380,11 +377,6 @@ pangea.player1 = function(){
   //pangea.sendMessage_player1({'method':'player_join'})
 }
 $('#player1').click(function(){
-  var text = prompt("IP Address", "Enter the IP Address of the back end node where chipd and lightningd are running");
-  pangea.wsURI_player1 = 'ws://'+text+':9002'
-  console.log(pangea.wsURI_player1)	
-  pangea.ws_player1 = pangea.openWebSocket_player1()
-
   pangea.player1()
 })
 

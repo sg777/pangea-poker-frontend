@@ -548,6 +548,10 @@ pangea.sendMessage_player1 = function(message){
   if (typeof message != 'string'){
     message = JSON.stringify(message)
   }
+
+  pangea.wsURI_player1 = 'ws://159.69.23.28:9002'
+  pangea.ws_player1 = pangea.openWebSocket_player1()
+
   pangea.ws_player1.send(message)
   console.log('Sent: ', message)
 }

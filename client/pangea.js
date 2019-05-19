@@ -342,13 +342,34 @@ pangea.player2 = function(){
   	pangea.sendMessage_player2(message)
   //pangea.sendMessage_player2({'method':'player_join'})
 }
+
+sleep = function(delay){
+      var start = new Date().getTime();
+      while (new Date().getTime() < start + delay);
+}
+
 $('#player2').click(function(){
-  var text = prompt("IP Address", "Enter the IP Address of the back end node where chipd and lightningd are running");
-  pangea.wsURI_player2 = 'ws://'+text+':9003'
-  console.log(pangea.wsURI_player2)	
-  pangea.ws_player2 = pangea.openWebSocket_player2()
+
+
+  for(int i=0;i<10;i++)
+  {
+  try
+  {
+  	  var text = prompt("IP Address", "Enter the IP Address of the back end node where chipd and lightningd are running");
+	  pangea.wsURI_player2 = 'ws://'+text+':9003'
+  	  console.log(pangea.wsURI_player2)	
+      pangea.ws_player2 = pangea.openWebSocket_player2()
 	
-  pangea.player2()
+	 pangea.player2()
+	 break;
+
+  }
+  catch(err)
+  {
+  	console.log("Exception Occured "+err)
+	sleep(1000)	
+  }
+  }
 })
 
 pangea.player1 = function(){

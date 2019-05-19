@@ -20,8 +20,7 @@ pangea.actions.join = function(seatnum){
   	{
   	    var text = prompt("IP Address", "Enter the IP Address of the back end node where chipd and lightningd are running");
     	pangea.wsURI_player1 = 'ws://159.69.23.28:9002'
-		
-        for(var i=0;i<10;i++)
+        while(true)
 		{
 			try
 			{

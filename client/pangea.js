@@ -333,8 +333,15 @@ pangea.player2 = function(){
   	pangea.sendMessage_player2(message)
   //pangea.sendMessage_player2({'method':'player_join'})
 }
+
+pangea.player2_socket = function(){
+	console.log('player2_socket')
+	pangea.ws_player2 = pangea.openWebSocket_player2()	
+}
+  
 $('#player2').click(function(){
-  pangea.player2()
+  //pangea.player2()
+  pangea.player2_socket()
 })
 
 pangea.player1 = function(){
@@ -344,8 +351,13 @@ pangea.player1 = function(){
 	pangea.sendMessage_player1(message)
   //pangea.sendMessage_player1({'method':'player_join'})
 }
+pangea.player1_socket = function(){
+	console.log('player1_socket')
+	pangea.ws_player1 = pangea.openWebSocket_player1()	
+}
 $('#player1').click(function(){
-  pangea.player1()
+	pangea.player1_socket()
+  //pangea.player1()
 })
 
 pangea.bvv = function(){
@@ -353,8 +365,15 @@ pangea.bvv = function(){
   var chatMessage = 'bvv'
   pangea.sendMessage_bvv({'method':chatMessage})
 }
+
+pangea.bvv_socket = function(){
+	console.log('bvv_socket')
+	pangea.ws_bvv = pangea.openWebSocket_bvv()	
+	
+}
 $('#bvv').click(function(){
-  pangea.bvv()
+  //pangea.bvv()
+  pangea.bvv_socket()
 })
 
 pangea.dcv = function(){

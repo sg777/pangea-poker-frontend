@@ -520,7 +520,7 @@ pangea.sendMessage = function(message){
 
 pangea.dealerTray()
 pangea.wsURI = 'ws://159.69.23.30:9000'//'ws://localhost:9000'
-pangea.ws = ''//pangea.openWebSocket()
+pangea.ws = '' //pangea.openWebSocket()
 
 // For DCV
 
@@ -541,7 +541,7 @@ pangea.openWebSocket_bvv = function(){
 }
 
 pangea.wsURI_bvv = 'ws://159.69.23.31:9001'
-pangea.ws_bvv = pangea.openWebSocket_bvv()
+pangea.ws_bvv = '' //pangea.openWebSocket_bvv()
 
 //For Player1
 
@@ -562,7 +562,7 @@ pangea.openWebSocket_player1 = function(){
 }
 
 pangea.wsURI_player1 = 'ws://159.69.23.28:9002'
-pangea.ws_player1 = pangea.openWebSocket_player1()
+pangea.ws_player1 = '' //pangea.openWebSocket_player1()
 
 // For Player2
 
@@ -583,7 +583,7 @@ pangea.openWebSocket_player2 = function(){
 }
 
 pangea.wsURI_player2 = 'ws://159.69.23.29:9003'
-pangea.ws_player2 = pangea.openWebSocket_player2()
+pangea.ws_player2 = '' //pangea.openWebSocket_player2()
 
 pangea.controls = ""
 pangea.action_clicked = ""	

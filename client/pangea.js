@@ -43,11 +43,12 @@ pangea.initBoardCards = function(){
 pangea.init = function(){
   console.log('pangea.init called')
   $('#seats').addClass('hide')
+  /* 	
   $('#bvv').addClass('hide')	
   $('#dcv').addClass('hide')
   $('#player1').addClass('hide')
   $('#player2').addClass('hide')
- 	
+  */	
   for (var i=0; i<9; i++){
     var newSeat = new pangea.Seat(i)
     pangea.seats.push(newSeat)
@@ -361,8 +362,13 @@ pangea.dcv = function(){
   var chatMessage = 'dcv'
   pangea.sendMessage({'method':chatMessage})
 }
+pangea.dcv_socket = function(){
+	console.log('dcv_socket')
+	pangea.ws=pangea.openWebSocket()	
+}
 $('#dcv').click(function(){
-  pangea.dcv()
+  //pangea.dcv()
+  pangea.dcv_socket()
 })
 
 

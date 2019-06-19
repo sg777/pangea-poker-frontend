@@ -106,6 +106,7 @@ pangea.potChips = function(potnum, stacknum, chipnum, quantity){
 }
 
 pangea.openWebSocket = function(){
+  console.log('pangea.openWebSocket')	
   var ws  = new WebSocket(pangea.wsURI)
   ws.onmessage = function(event){
     pangea.onMessage(event.data)
@@ -519,7 +520,7 @@ pangea.sendMessage = function(message){
 
 pangea.dealerTray()
 pangea.wsURI = 'ws://159.69.23.30:9000'//'ws://localhost:9000'
-pangea.ws = pangea.openWebSocket()
+pangea.ws = ''//pangea.openWebSocket()
 
 // For DCV
 

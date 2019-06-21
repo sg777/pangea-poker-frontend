@@ -336,7 +336,9 @@ pangea.player2 = function(){
 
 pangea.player2_socket = function(){
 	console.log('player2_socket')
-	pangea.ws_player2 = pangea.openWebSocket_player2()	
+	pangea.ws_player2 = pangea.openWebSocket_player2()
+	var message={"method":"do_nothing"}
+  	pangea.sendMessage_player2(message)
 }
   
 $('#player2').click(function(){

@@ -455,7 +455,8 @@ pangea.onMessage_player1 = function(message){
   }
   else
   {
-     pangea.sendMessage(message)
+  	console.log('player1 else part')
+     //pangea.sendMessage(message)
   } 
 }
 
@@ -504,7 +505,8 @@ pangea.onMessage_player2 = function(message){
 
   else
   {
-     pangea.sendMessage(message)
+  	console.log('player2 else part')
+     //pangea.sendMessage(message)
   }
 }
 

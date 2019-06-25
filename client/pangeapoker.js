@@ -453,6 +453,10 @@ pangea.onMessage_player1 = function(message){
 	message["gui_playerID"]=0
 	pangea.processControls(message)	
   }
+  else if(message["method"] == "seats")
+  {
+  	 	pangea.API.seats(message["seats"])
+  }
   else
   {
   	console.log('player1 else part')

@@ -356,8 +356,8 @@ pangea.player2 = function(){
   console.log('player2')
   	var message={"method":"player_join", "gui_playerID":1}
 
-  	sendMessage(message)
-  	//pangea.sendMessage_player2(message)
+  	//sendMessage(message)
+  	pangea.sendMessage_player2(message)
   //pangea.sendMessage_player2({'method':'player_join'})
 }
 

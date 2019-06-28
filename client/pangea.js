@@ -337,13 +337,11 @@ pangea.player2 = function(){
 pangea.player2_socket = function(){
 	console.log('player2_socket')
 	pangea.ws_player2 = pangea.openWebSocket_player2()
-	var message={"method":"do_nothing"}
-  	pangea.sendMessage_player2(message)
 }
   
 $('#player2').click(function(){
-  //pangea.player2()
   pangea.player2_socket()
+  pangea.player2()
 })
 
 pangea.player1 = function(){
@@ -358,8 +356,8 @@ pangea.player1_socket = function(){
 	pangea.ws_player1 = pangea.openWebSocket_player1()	
 }
 $('#player1').click(function(){
-	pangea.player1_socket()
-  //pangea.player1()
+  pangea.player1_socket()
+  pangea.player1()
 })
 
 pangea.bvv = function(){

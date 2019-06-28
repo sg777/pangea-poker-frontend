@@ -368,7 +368,7 @@ pangea.player2_socket = function(){
   
 $('#player2').click(function(){
   pangea.player2_socket()
-  pangea.player2()
+  //pangea.player2()
 })
 
 pangea.player1 = function(){
@@ -384,7 +384,7 @@ pangea.player1_socket = function(){
 }
 $('#player1').click(function(){
   pangea.player1_socket()
-  pangea.player1()
+  //pangea.player1()
 })
 
 pangea.bvv = function(){

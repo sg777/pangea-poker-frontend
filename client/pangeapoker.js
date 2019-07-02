@@ -231,9 +231,9 @@ pangea.onMessage = function(message){
 	else if(message["method"] =="init")
 	{
 		 message["gui_playerID"]=0
-		 pangea.sendMessage_player1(message)
+		 //pangea.sendMessage_player1(message)
 		 message["gui_playerID"]=1
-		 pangea.sendMessage_player2(message) 
+		 //pangea.sendMessage_player2(message) 
 	}
 	else if(message["method"] =="init_d")
 	{

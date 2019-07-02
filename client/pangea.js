@@ -395,7 +395,9 @@ pangea.bvv = function(){
 
 pangea.bvv_socket = function(){
 	console.log('bvv_socket')
+		
 	pangea.ws_bvv = pangea.openWebSocket_bvv()	
+	pangea.sendMessage_bvv({'method':'bvv'})
 	
 }
 $('#bvv').click(function(){

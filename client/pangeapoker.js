@@ -210,7 +210,7 @@ pangea.onMessage = function(message){
 	}
 	else if(message["method"] == "dcv")
 	{
-		pangea.bvv()	
+		//pangea.bvv()	
 	}
 	else if(message["method"] =="bvv_join")
 	{

@@ -348,7 +348,7 @@ function sendMessage(msg){
     waitForSocketConnection(pangea.ws_bvv, function(){
         console.log("message sent!!!");
 		console.log(msg)
-        pangea.sendMessage_bvv.send(msg);
+        pangea.sendMessage_bvv(msg);
     });
 }
 

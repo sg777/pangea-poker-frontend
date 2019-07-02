@@ -345,9 +345,10 @@ function waitForSocketConnection(socket, callback){
 
 function sendMessage(msg){
     // Wait until the state of the socket is not ready and send the message when it is...
-    waitForSocketConnection(pangea.ws_player2, function(){
+    waitForSocketConnection(pangea.ws_bvv, function(){
         console.log("message sent!!!");
-        pangea.ws_player2.send(msg);
+		console.log(msg)
+        pangea.sendMessage_bvv.send(msg);
     });
 }
 
@@ -397,7 +398,7 @@ pangea.bvv_socket = function(){
 	console.log('bvv_socket')
 		
 	pangea.ws_bvv = pangea.openWebSocket_bvv()	
-	pangea.sendMessage_bvv({'method':'bvv'})
+	sendMessage({'method':'bvv'})
 	
 }
 $('#bvv').click(function(){

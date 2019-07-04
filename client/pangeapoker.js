@@ -206,7 +206,7 @@ pangea.onMessage = function(message){
 	else if(message["method"] == "seats")
 	{
 		pangea.API.seats(message["seats"])
-		pangea.dcv()	
+		//pangea.dcv()	
 	}
 	else if(message["method"] == "dcv")
 	{

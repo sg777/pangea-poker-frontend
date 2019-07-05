@@ -453,6 +453,10 @@ pangea.onMessage_player1 = function(message){
 	message["gui_playerID"]=0
 	pangea.processControls(message)	
   }
+  else if(message["method"] == "betting")
+  {
+	pangea.processControls(message)	
+  }
   else if(message["method"] == "seats")
   {
   	 	pangea.API.seats(message["seats"])
@@ -506,6 +510,11 @@ pangea.onMessage_player2 = function(message){
 	message["gui_playerID"]=1
 	pangea.processControls(message)	
   }
+  else if(message["method"] == "betting")
+  {
+	pangea.processControls(message)	
+  }
+
   else if(message["method"] == "seats")
   {
   	 	pangea.API.seats(message["seats"])

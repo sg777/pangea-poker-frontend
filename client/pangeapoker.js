@@ -387,6 +387,9 @@ pangea.onMessage = function(message){
 	}
 	else if(message["method"] == "reset")
 	{
+			$('#game').removeClass('hide')
+			pangea.init()
+			pangea.update()
 			pangea.API.flushTheBoard()
 			message["method"]="player_reset"
 			message["gui_playerID"]=0

@@ -387,16 +387,15 @@ pangea.onMessage = function(message){
 	}
 	else if(message["method"] == "reset")
 	{
-		if(message["playerID"] == 0)
-		{
+			message["method"]="player_reset"
 			message["gui_playerID"]=0
-			pangea.sendMessage_player1(message);	
-		}
-		else if(message["playerID"] == 1)
-		{
+			pangea.sendMessage_player1(message)
+
 			message["gui_playerID"]=1
-			pangea.sendMessage_player2(message);	
-		}
+			pangea.sendMessage_player2(message)
+
+			message["method"]="bvv_reset"
+			pangea.sendMessage_bvv(message)
 	}
 }
 

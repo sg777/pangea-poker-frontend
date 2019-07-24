@@ -385,6 +385,19 @@ pangea.onMessage = function(message){
 			pangea.sendMessage_player2(message);	
 		}
 	}
+	else if(message["method"] == "reset")
+	{
+		if(message["playerID"] == 0)
+		{
+			message["gui_playerID"]=0
+			pangea.sendMessage_player1(message);	
+		}
+		else if(message["playerID"] == 1)
+		{
+			message["gui_playerID"]=1
+			pangea.sendMessage_player2(message);	
+		}
+	}
 }
 
 pangea.onMessage_bvv = function(message){

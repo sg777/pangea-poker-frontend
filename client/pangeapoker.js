@@ -387,6 +387,7 @@ pangea.onMessage = function(message){
 	}
 	else if(message["method"] == "reset")
 	{
+			pangea.API.flushTheBoard()
 			message["method"]="player_reset"
 			message["gui_playerID"]=0
 			pangea.sendMessage_player1(message)

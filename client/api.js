@@ -42,6 +42,37 @@ pangea.API.game = function(gameArray){
   pangea.update()
 }
 
+pangea.API.flushTheBoard = function(){
+	console.log('pangea.API.deal')
+    function dealer(){
+    pangea.dealer = null
+    pangea.update()
+  }
+  function holecards(){
+    for (var seat in pangea.seats){
+      pangea.seats[seat].playercards = null
+      pangea.player.holecards = null
+  }
+ }
+  function boardcards(){
+  	pangea.boardcards=null
+  }
+  var is_holecards = false
+  var newholecards = []
+  var handlers = {'holecards':holecards, 'dealer':dealer,
+                 'board':boardcards}
+  for (var key in handlers){
+ 		handlers[key]()
+  }
+    pangea.game.pot[0]=0
+	pangea.gui.updatePotAmount()
+
+	pangea.gui.bet_dealcards()
+	pangea.gui.showboardcards()
+	pangea.update()
+}
+
+
 pangea.API.deal = function(message){
 	console.log('pangea.API.deal')
     function dealer(new_dealer){

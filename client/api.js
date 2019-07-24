@@ -69,6 +69,7 @@ pangea.API.flushTheBoard = function(){
 
 	pangea.gui.bet_dealcards()
 	pangea.gui.showboardcards()
+	pangea.init()
 	pangea.update()
 }
 

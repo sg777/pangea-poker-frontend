@@ -51,11 +51,11 @@ pangea.API.flushTheBoard = function(){
   function holecards(){
     for (var seat in pangea.seats){
       pangea.seats[seat].playercards = null
-      pangea.player.holecards = null
+      pangea.player.holecards = []
   }
  }
   function boardcards(){
-  	pangea.boardcards=null
+  	pangea.boardcards=[]
   }
   var is_holecards = false
   var newholecards = []

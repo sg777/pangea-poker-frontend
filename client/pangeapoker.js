@@ -386,6 +386,10 @@ pangea.onMessage = function(message){
 			pangea.sendMessage_player2(message);	
 		}
 	}
+	else if(message["method"] == "finalInfo")
+	{
+		console.log(message)
+	}
 }
 
 pangea.onMessage_bvv = function(message){
@@ -461,6 +465,10 @@ pangea.onMessage_player1 = function(message){
   {
   	 	pangea.API.seats(message["seats"])
   }
+  else if(message["method"] == "finalInfo")
+  {
+		console.log(message)
+  }
   else
   {
   	console.log('player1 else part')
@@ -518,6 +526,10 @@ pangea.onMessage_player2 = function(message){
   else if(message["method"] == "seats")
   {
   	 	pangea.API.seats(message["seats"])
+  }
+  else if(message["method"] == "finalInfo")
+  {
+		console.log(message)
   }
   else
   {

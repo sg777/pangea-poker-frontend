@@ -218,10 +218,12 @@ pangea.onMessage = function(message){
 	}
 	else if(message["method"] =="join_res")
 	{
+		/*
 		message["gui_playerID"]=0
-		//pangea.sendMessage_player1(message)
+		pangea.sendMessage_player1(message)
 		message["gui_playerID"]=1
-		//pangea.sendMessage_player2(message)
+		pangea.sendMessage_player2(message)
+		*/
 
 	}
 	else if(message["method"] =="check_bvv_ready")
@@ -230,10 +232,12 @@ pangea.onMessage = function(message){
 	}
 	else if(message["method"] =="init")
 	{
+		/*
 		 message["gui_playerID"]=0
-		 //pangea.sendMessage_player1(message)
+		 pangea.sendMessage_player1(message)
 		 message["gui_playerID"]=1
-		 //pangea.sendMessage_player2(message) 
+		 pangea.sendMessage_player2(message)
+		 */
 	}
 	else if(message["method"] =="init_d")
 	{
@@ -242,6 +246,7 @@ pangea.onMessage = function(message){
 	  which causing the sync issues, what I'm doing is at this moment I'm just forwading this message to BVV frome from UI and BVV 
 	  in the backend forwards this message to Players
 	  */
+	  /*
 	  message["method"]="init_d_bvv"    
 	  pangea.sendMessage_bvv(message)
 
@@ -251,13 +256,13 @@ pangea.onMessage = function(message){
 
 	  message["gui_playerID"]=1
 	 pangea.sendMessage_player2(message) 
-	 
+	 */
 
 	}
 	else if(message["method"] == "dealer")
 	{
 		console.log("We got the dealer")
-
+		/*
 		message["method"]="dealer_bvv"    
 		pangea.sendMessage_bvv(message)
 
@@ -266,7 +271,7 @@ pangea.onMessage = function(message){
 		pangea.sendMessage_player1(message)
 		message["gui_playerID"]=1
 		pangea.sendMessage_player2(message)
-		/*
+		
 		message["playerID"]=1
 		pangea.sendMessage_player2(message) 
 		*/
